@@ -18,7 +18,7 @@ class Dashboard extends AdminController
         $data = array( 
             'pageTitle' => 'NILACHAL-ADMIN'                                         
              );  
-       $this-> render_view("Admin/Pages/dashboard");
+       $this-> render_view("Admin/pages/dashboard",$data);
     }
 
 }

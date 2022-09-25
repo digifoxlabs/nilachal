@@ -55,7 +55,7 @@ class AdminController extends BaseController
 
 
          echo view('Admin/template/header',$data)
-                . view('Admin/template/sidebar',$data)
+                . view('Admin/template/sidebar',$defaultData)
                 . view('Admin/template/topbar',$defaultData)
                 . view($page,$data)
                 . view('Admin/template/footer',$defaultData);
