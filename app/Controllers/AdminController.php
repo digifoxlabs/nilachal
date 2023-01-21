@@ -34,6 +34,7 @@ class AdminController extends BaseController
         $builder = $this->db->table("user_group");
         $builder->select('user_group.u_id,user_group.g_id, groups.group_name, groups.permissions');
         $builder->join('groups', 'user_group.ug_id = groups.g_id');
+        $builder->where('user_group.u_id',$user_id);
         return $builder->get()->getRowArray();
 	}
 
@@ -54,10 +55,24 @@ class AdminController extends BaseController
         );
 
 
-         echo view('Admin/template/header',$data)
-                . view('Admin/template/sidebar',$defaultData)
-                . view('Admin/template/topbar',$defaultData)
+         echo view('Admin/template/master/header',$data)
+                . view('Admin/template/master/sidebar',$defaultData)
+                . view('Admin/template/master/topbar',$defaultData)
                 . view($page,$data)
-                . view('Admin/template/footer',$defaultData);
+                . view('Admin/template/master/footer',$defaultData);
+    }
+
+
+    //No of Nights
+    public function getNoNights($start,$end){
+
+        if($start==$end){
+            return 1;           
+        }
+
+        else {
+
+            return ($end-$start)/86400;
+        }
     }
 }

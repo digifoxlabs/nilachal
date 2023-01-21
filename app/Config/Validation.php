@@ -8,6 +8,8 @@ use CodeIgniter\Validation\FileRules;
 use CodeIgniter\Validation\FormatRules;
 use CodeIgniter\Validation\Rules;
 
+use App\Validation\Userrules;
+
 class Validation extends BaseConfig
 {
     // --------------------------------------------------------------------
@@ -25,6 +27,7 @@ class Validation extends BaseConfig
         FormatRules::class,
         FileRules::class,
         CreditCardRules::class,
+        Userrules::class, // here we have registered
     ];
 
     /**

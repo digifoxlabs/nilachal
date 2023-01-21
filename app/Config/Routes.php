@@ -37,7 +37,21 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
 $routes->get('/', 'Frontend\Home::index');
+$routes->get("send-mail", "Frontend\Home::sendMail");
+$routes->match(['get', 'post'],"login", "Frontend\Authenticate::login");
+$routes->post("validate-otp", "Frontend\Authenticate::validateOtp");
+$routes->match(['get', 'post'],"bookings", "Frontend\Bookings::index", ['filter' => 'authclient']);
+$routes->match(['get', 'post'],"search-rooms", "Frontend\Bookings::search", ['filter' => 'authclient']);
+$routes->match(['get', 'post'],"guest-details", "Frontend\Bookings::guestDetails", ['filter' => 'authclient']);
+$routes->match(['get', 'post'],"preview-booking", "Frontend\Bookings::previewBooking", ['filter' => 'authclient']);
+$routes->get("my-bookings", "Frontend\Bookings::allBookings", ['filter' => 'authclient']);
 
+$routes->match(['get','post'],"profile", "Frontend\Home::profile", ['filter' => 'authclient']);
+
+$routes->get('about-us', 'Frontend\Home::about');
+$routes->match(['get', 'post'],'contact-us', 'Frontend\Home::contact');
+
+$routes->get('logout', 'Frontend\Authenticate::logout');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
@@ -56,4 +70,60 @@ if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 }
 
 /**ADMIN ROUTES */
-$routes->get('/admin', 'Admin\Dashboard::index');
+// $routes->get('/admin', 'Admin\Dashboard::index');
+// $routes->get('/admin/rooms', 'Admin\Rooms::index');
+// $routes->get('/admin/login', 'Admin\Users::login');
+
+$routes->group('admin', ['namespace' => 'App\Controllers\Admin'] ,static function ($routes) {
+
+    $routes->get("/", 'Dashboard::index', ['filter' => 'authadmin']);
+    $routes->get('dashboard', 'Dashboard::index', ['filter' => 'authadmin']);
+
+    $routes->match(['get', 'post'], 'login', 'Users::login', ['filter' => 'noauthadmin']);
+    $routes->get('logout', 'Users::logout');
+
+    // Rooms
+    $routes->get('rooms', 'Rooms::index', ['filter' => 'authadmin']);
+    $routes->match(['get', 'post'], 'rooms/addCategory', 'Rooms::addRoomCat', ['filter' => 'authadmin']);
+    $routes->match(['get','post'],'rooms/editCategory/(:num)', 'Rooms::editRoomCat/$1', ['filter' => 'authadmin']);
+    $routes->post('rooms/deleteRoomCat', 'Rooms::deleteRoomCat', ['filter' => 'authadmin']);
+    
+    $routes->match(['get', 'post'], 'rooms/add/(:num)', 'Rooms::addRoom/$1', ['filter' => 'authadmin']);
+    $routes->post('rooms/createRoomNo', 'Rooms::createRoomNo', ['filter' => 'authadmin']);
+    $routes->post('rooms/updateRoomNo', 'Rooms::updateRoomNo', ['filter' => 'authadmin']);
+    $routes->post('rooms/deleteRoomNo', 'Rooms::deleteRoomNo', ['filter' => 'authadmin']);
+
+    //Bookings
+    $routes->get('bookings', 'Bookings::index', ['filter' => 'authadmin']);
+    $routes->get('bookings/new', 'Bookings::newBookings', ['filter' => 'authadmin']);
+    $routes->get('bookings/pending', 'Bookings::pendingBookings', ['filter' => 'authadmin']);
+    $routes->get('bookings/completed', 'Bookings::completedBookings', ['filter' => 'authadmin']);
+    $routes->get('bookings/active', 'Bookings::activeBookings', ['filter' => 'authadmin']);
+    $routes->get('bookings/cancelled', 'Bookings::cancelledBookings', ['filter' => 'authadmin']);
+    $routes->post('fetchbookings', 'Bookings::fetchBookings');
+
+    //Offline Bookings
+    $routes->get('bookings/offline/check-dates', 'Bookings::offlineBooking', ['filter' => 'authadmin']);
+    $routes->post('bookings/offline/select-rooms', 'Bookings::selectOfflineRooms', ['filter' => 'authadmin']);
+    $routes->get('bookings/offline/norooms', 'Bookings::getAvailableRooms', ['filter' => 'authadmin']);
+    $routes->match(['get','post'],'bookings/offline/billing', 'Bookings::offlineBilling', ['filter' => 'authadmin']);
+    $routes->match(['get','post'],'bookings/offline/preview', 'Bookings::previewBooking', ['filter' => 'authadmin']);
+
+    $routes->match(['get','post'],'bookings/update/', 'Bookings::updateBooking', ['filter'=>'authadmin']);
+    $routes->match(['get','post'],'bookings/update/customerdetails/', 'Bookings::updateBookingCustomer', ['filter'=>'authadmin']);
+
+    //Bookings Process
+    $routes->get('bookings/view/(:alphanum)', 'Bookings::viewBooking/$1', ['filter'=>'authadmin']);
+    $routes->get('bookings/activate/(:alphanum)', 'Bookings::activateBooking/$1', ['filter'=>'authadmin']);
+    $routes->match(['get','post'],'bookings/checkIN', 'Bookings::checkInBooking', ['filter'=>'authadmin']);
+    $routes->match(['get','post'],'bookings/roomAssign', 'Bookings::roomAssign', ['filter'=>'authadmin']);
+    $routes->match(['get','post'],'bookings/selectRooms', 'Bookings::selectRooms', ['filter'=>'authadmin']);
+    $routes->match(['get','post'],'bookings/releaseRooms', 'Bookings::releaseRooms', ['filter'=>'authadmin']);
+    $routes->match(['get','post'],'bookings/checkOut', 'Bookings::checkOutRooms', ['filter'=>'authadmin']);
+    $routes->match(['get','post'],'bookings/printInvoice', 'Bookings::printInvoice', ['filter'=>'authadmin']);
+
+    //Settings
+    $routes->match(['get','post'],'settings', 'Dashboard::settings', ['filter' => 'authadmin']);
+
+
+});

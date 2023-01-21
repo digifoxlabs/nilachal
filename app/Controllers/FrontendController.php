@@ -18,6 +18,7 @@ class FrontendController extends BaseController
     public function render_view($page = null, $data = array())
     {
         $defaultData = array( 
+            'pageTitle' => 'Nilachal',
             'siteTitle' => $this->getSettingsvalues('site_title'),
             'footerTitle' => $this->getSettingsvalues('site_footer')
         );
@@ -36,6 +37,18 @@ class FrontendController extends BaseController
 		return $builder->get()->getRow()->value;  
     }
 
+        //No of Nights
+        public function getNoNights($start,$end){
+
+            if($start==$end){
+                return 1;           
+            }
+    
+            else {
+    
+                return ($end-$start)/86400;
+            }
+        }
 
 
 

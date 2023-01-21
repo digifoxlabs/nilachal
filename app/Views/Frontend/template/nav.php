@@ -25,7 +25,7 @@
                         <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                         <!-- RD Navbar Brand-->
                         <div class="rd-navbar-brand">
-                            <!--Brand--><a class="brand" href="index.php"><img src="<?= base_url("assets/frontend/img/logo.png") ?>" alt="Logo"></a>
+                            <!--Brand--><a class="brand" href="<?= base_url(); ?>"><img src="<?= base_url("assets/frontend/img/logo.png") ?>" alt="Logo"></a>
                         </div>
                     </div>
                     <div class="rd-navbar-aside-right rd-navbar-collapse">
@@ -41,10 +41,14 @@
                             <li>
                                 <div class="unit unit-spacing-xs">
                                     <div class="unit-left"><span class="icon fa fa-phone"></span></div>
-                                    <div class="unit-body"><a class="link-phone" href="#">+91 9707310629</a></div>
+                                    <div class="unit-body">
+                                        <a class="link-phone" href="#">+91 60265-00977</a><br>
+                                        <a class="link-phone" href="#">+91 76369-55501</a>
+                                    
+                                    </div>
                                 </div>
                             </li>
-                        </ul><a class="button button-sm button-default-outline-2" href="bookings.php">Book Now</a>
+                        </ul><a class="button button-sm button-default-outline-2" href="<?= base_url('bookings'); ?>">Book Now</a>
                     </div>
                 </div>
             </div>
@@ -60,30 +64,35 @@
                         </ul>
                         <!-- RD Navbar Nav-->
                         <ul class="rd-navbar-nav">
-                            <li class="rd-nav-item active"><a class="rd-nav-link" href="index.php">Home</a>
+                            <li class="rd-nav-item active"><a class="rd-nav-link" href="<?= base_url(); ?>">Home</a>
                             </li>
-                            <li class="rd-nav-item"><a class="rd-nav-link" href="about.php">About</a>
+                            <li class="rd-nav-item"><a class="rd-nav-link" href="<?= base_url('/about-us'); ?>">About</a>
                             </li>
 
 
 
-                            <li class="rd-nav-item"><a class="rd-nav-link" href="contact-us.php">Contact Us</a>
+                            <li class="rd-nav-item"><a class="rd-nav-link" href="<?= base_url('/contact-us'); ?>">Contact Us</a>
                             </li>
 
   
-
+                            <!-- If Logged In -->
+                            <?php   
+                            
+                            if(session()->get('isLoggedInClient')):
+                            ?>
                             <li class="rd-nav-item">
                                 <div class="dropdown show">
                                     <a class="rd-nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Account
                                     </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">                     <a class="dropdown-item" href="myaccount.php">My Account</a>                         <a class="dropdown-item" href="myprofile.php">My Profile</a>  
-                                <a class="dropdown-item" href="logout.php">Logout</a>                                      
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">                   
+                                      <a class="dropdown-item" href="<?= base_url('my-bookings') ?>">My Account</a>                      
+                                         <a class="dropdown-item" href="<?= base_url('profile') ?>">My Profile</a>  
+                                <a class="dropdown-item" href="<?= base_url('logout'); ?>">Logout</a>                                      
                                     </div>
                                 </div>
-
                             </li>
-        
+                                <?php endif ?>
 
                         </ul>
                     </div>

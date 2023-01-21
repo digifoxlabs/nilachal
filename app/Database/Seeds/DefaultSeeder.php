@@ -54,11 +54,65 @@ class DefaultSeeder extends Seeder
             ],
             [
                 'key'=> 'site_footer',
-                'value' => 'Copyright © 2022',
+                'value' => 'Copyright © 2023',
 
-            ]                   
+            ] ,                  
+            [
+                'key'=> 'gst',
+                'value' => '18',
+
+            ] ,                  
+            [
+                'key'=> 'discount',
+                'value' => '500',
+
+            ] ,                  
+            [
+                'key'=> 'currency',
+                'value' => 'Rs.',
+
+            ] ,                  
+            [
+                'key'=> 'admin_email',
+                'value' => 'support@nilachalstay.com',
+
+            ] ,                  
+            [
+                'key'=> 'admin_mobile',
+                'value' => '6026500977',
+
+            ] ,                  
         ];
         $this->db->table('settings')->insertbatch($sdata);
+
+
+
+        //Default Room category
+        $roomdata = [
+            [ 
+                'category'=>'Deluxe',
+                'occupancy'=> '2',
+                'description'=> 'This is a Deluxe room with double occupancy',
+                'rate'=> '2500',
+                'status'=> 1,              
+            ],
+            [ 
+                'category'=>'Semi-Deluxe',
+                'occupancy'=> '2',
+                'description'=> 'This is a Semi-Deluxe room with triple occupancy',
+                'rate'=> '2300',
+                'status'=> 1,              
+            ],
+            [ 
+                'category'=>'Super-Deluxe',
+                'occupancy'=> '2',
+                'description'=> 'This is a Super-Deluxe room wth quad occupancy',
+                'rate'=> '3500',
+                'status'=> 1,              
+            ],
+        ];
+        $this->db->table('room_category')->insertbatch($roomdata);
+
 
 
     }

@@ -42,28 +42,28 @@
               <div class="row justify-content-center">
                 <div class="col-md-4 wow fadeInDown col-9" data-wow-delay=".2s">
                   <ul class="list-marked-2 box-categories-list">
-                    <li><a href="#"><img src="images/Room1.jpg" alt="" width="368" height="420"/></a>
+                    <li><a href="#"><img src="<?= base_url("assets/frontend/img/Room1.jpg") ?>" alt="" width="368" height="420"/></a>
                       <h5 style="color: black" class="box-categories-title">Delux Room</h5>
                     </li>
                   </ul>
                 </div>
                 <div class="col-md-4 wow fadeInDown col-9" data-wow-delay=".2s">
                   <ul class="list-marked-2 box-categories-list">
-                    <li><a href="#"><img src="images/Room1.jpg" alt="" width="368" height="420"/></a>
+                    <li><a href="#"><img src="<?= base_url("assets/frontend/img/Room2.jpg") ?>" alt="" width="368" height="420"/></a>
                       <h5 style="color: black" class="box-categories-title">Semi Delux Room</h5>
                     </li>
                   </ul>
                 </div>
                 <div class="col-md-4 wow fadeInDown col-9" data-wow-delay=".2s">
                   <ul class="list-marked-2 box-categories-list">
-                    <li><a href="#"><img src="images/Room1.jpg" alt="" width="368" height="420"/></a>
+                    <li><a href="#"><img src="<?= base_url("assets/frontend/img/Room3.jpg") ?>" alt="" width="368" height="420"/></a>
                       <h5 style="color: black" class="box-categories-title">Family Room</h5>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
-          </div><a class="link-classic wow fadeInUp" href="#">Book Now<span></span></a>
+          </div><a class="link-classic wow fadeInUp" href="<?= base_url('bookings'); ?>">Book Now<span></span></a>
         </div>
       </section>
 
@@ -71,7 +71,7 @@
       <section class="section section-sm section-first bg-default text-md-left section-top-1">
         <div class="container">
           <div class="row row-50 align-items-center justify-content-center justify-content-xl-between">
-            <div class="col-lg-6 text-center wow fadeInUp"><img src="images/FV_Hotel.jpg" alt="" width="556" height="382"/>
+            <div class="col-lg-6 text-center wow fadeInUp"><img src="<?= base_url("assets/frontend/img/FV_Hotel.jpg") ?>" alt="" width="556" height="382"/>
             </div>
             <div class="col-lg-6 wow fadeInRight" data-wow-delay=".1s">
               <div class="box-width-lg-470">
@@ -113,30 +113,33 @@
           <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">Nilachal Hotels</span></h3>
           <div class="row row-sm row-40 row-md-50">
 
-            <div class="col-sm-6 col-md-12 wow fadeInRight">
+          
+            <div class="col-sm-6 col-md-12 wow fadeInLeft">
               <!-- Product Big-->
               <article class="product-big">
                 <div class="unit flex-column flex-md-row align-items-md-stretch">
-                  <div class="unit-left"><a class="product-big-figure" href="#"><img src="images/Room_Category1.jpg" alt="" width="600" height="366"/></a></div>
+                  <div class="unit-left"><a class="product-big-figure" href="#"><img src="<?= base_url("assets/frontend/img/Room1.jpg") ?>" alt="" width="600" height="366"/></a></div>
                   <div class="unit-body">
                     <div class="product-big-body">
-                      <h5 class="product-big-title"><a href="#">Super Delux, Room</a></h5>
+                      <h5 class="product-big-title"><a href="#">Delux, Room</a></h5>
                       <div class="group-sm group-middle justify-content-start">
                         <div class="product-big-rating"><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star_half"></span></div><a class="product-big-reviews" href="#">Rating</a>
                       </div>
-                      <p class="product-big-text">Super Delux rooms are equipped with shower or bathtub and some of them with balcony overlooking hotel garden. Each room is air conditioned and has a flat-screen TV with international TV channels, cozy king size bed and spacious wardrobe.</p><a class="button button-black-outline button-ujarak" href="#">Book This Room</a>
-                      <div class="product-big-price-wrap"><span class="product-big-price">₹5000</span></div>
+                      <p class="product-big-text">Delux rooms are equipped with shower or bathtub and some of them with balcony overlooking hotel garden. Each room is air conditioned and has a flat-screen TV with international TV channels, cozy king size bed and spacious wardrobe.</p><a class="button button-black-outline button-ujarak" href="#">Book This Room</a>
+                      <div class="product-big-price-wrap"><span class="product-big-price">₹2300</span></div>
                     </div>
                   </div>
                 </div>
               </article>
+
             </div>
+
 
             <div class="col-sm-6 col-md-12 wow fadeInLeft">
               <!-- Product Big-->
               <article class="product-big">
                 <div class="unit flex-column flex-md-row align-items-md-stretch">
-                  <div class="unit-left"><a class="product-big-figure" href="#"><img src="images/Room_Category1.jpg" alt="" width="600" height="366"/></a></div>
+                  <div class="unit-left"><a class="product-big-figure" href="#"><img src="<?= base_url("assets/frontend/img/Room2.jpg") ?>" alt="" width="600" height="366"/></a></div>
                   <div class="unit-body">
                     <div class="product-big-body">
                       <h5 class="product-big-title"><a href="#">Semi Delux, Room</a></h5>
@@ -144,7 +147,26 @@
                         <div class="product-big-rating"><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star_half"></span></div><a class="product-big-reviews" href="#">Rating</a>
                       </div>
                       <p class="product-big-text">Semi Delux rooms are equipped with shower or bathtub and some of them with balcony overlooking hotel garden. Each room is air conditioned and has a flat-screen TV with international TV channels, cozy king size bed and spacious wardrobe.</p><a class="button button-black-outline button-ujarak" href="#">Book This Room</a>
-                      <div class="product-big-price-wrap"><span class="product-big-price">₹4000</span></div>
+                      <div class="product-big-price-wrap"><span class="product-big-price">₹2500</span></div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="col-sm-6 col-md-12 wow fadeInRight">
+                <!-- Product Big-->
+                <article class="product-big">
+                <div class="unit flex-column flex-md-row align-items-md-stretch">
+                  <div class="unit-left"><a class="product-big-figure" href="#"><img src="<?= base_url("assets/frontend/img/Room3.jpg") ?>" alt="" width="600" height="366"/></a></div>
+                  <div class="unit-body">
+                    <div class="product-big-body">
+                      <h5 class="product-big-title"><a href="#">Super Delux, Room</a></h5>
+                      <div class="group-sm group-middle justify-content-start">
+                        <div class="product-big-rating"><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star_half"></span></div><a class="product-big-reviews" href="#">Rating</a>
+                      </div>
+                      <p class="product-big-text">Super Delux rooms are equipped with shower or bathtub and some of them with balcony overlooking hotel garden. Each room is air conditioned and has a flat-screen TV with international TV channels, cozy king size bed and spacious wardrobe.</p><a class="button button-black-outline button-ujarak" href="#">Book This Room</a>
+                      <div class="product-big-price-wrap"><span class="product-big-price">₹3500</span></div>
                     </div>
                   </div>
                 </div>
@@ -157,11 +179,11 @@
 
       <!-- New Section -->
       <section class="section bg-default text-center offset-top-50">
-        <div class="parallax-container" data-parallax-img="images/temple.jpg">
+        <div class="parallax-container" data-parallax-img="<?= base_url("assets/frontend/img/temple.jpg") ?>">
           <div class="parallax-content section-xl section-inset-custom-1 context-dark bg-overlay-2-21">
             <div class="container">
               <h2 class="heading-2 oh font-weight-normal wow slideInDown"><span class="d-block font-weight-semi-bold">Feel The Eternity</span><span class="d-block font-weight-light">With The Mother Goddess Kamakhya!</span></h2>
-              <p class="text-width-medium text-spacing-75 wow fadeInLeft" data-wow-delay=".1s">Our hotel offers tourists for various tours and excursions with destinations all over accross Assam.</p><a class="button button-secondary button-pipaluk" href="#">Book a Room Now</a>
+              <p class="text-width-medium text-spacing-75 wow fadeInLeft" data-wow-delay=".1s">Our hotel offers tourists for various tours and excursions with destinations all over accross Assam.</p><a class="button button-secondary button-pipaluk" href="<?= base_url('bookings'); ?>">Book a Room Now</a>
             </div>
           </div>
         </div>
