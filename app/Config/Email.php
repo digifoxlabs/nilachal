@@ -9,7 +9,7 @@ class Email extends BaseConfig
     /**
      * @var string
      */
-    public $fromEmail = "services@nilachalstaytour.com";
+    public $fromEmail = "support@nilachalstaytour.com";
 
     /**
      * @var string
@@ -54,21 +54,21 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPUser = "services@nilachalstaytour.com";
+    public $SMTPUser = "support@nilachalstaytour.com";
 
     /**
      * SMTP Password
      *
      * @var string
      */
-    public $SMTPPass ="Nilachal2022#";
+    public $SMTPPass ="d5h6PXi[1)3uDR";
 
     /**
      * SMTP Port
      *
      * @var int
      */
-    public $SMTPPort = 587;
+    public $SMTPPort = 465;
 
     /**
      * SMTP Timeout (in seconds)
