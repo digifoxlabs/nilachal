@@ -31,7 +31,7 @@
           
           <h1 class="h3 mb-0 text-gray-800"> <strong>  <?php echo date("F j, Y"); ?></strong></h1>
       
-       <a href="calendar.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-calendar fa-sm text-white-50"></i> Calendar</a>
+       <a href="<?= base_url('admin/bookings/calendar') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-calendar fa-sm text-white-50"></i> Calendar</a>
           
       </div>
 

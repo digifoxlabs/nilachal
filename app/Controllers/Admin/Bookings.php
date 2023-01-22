@@ -1026,5 +1026,41 @@ class Bookings extends AdminController
 
     }
 
+    /**Calendar View */
+    public function calendarView(){
+
+        $data = array( 
+            'pageTitle' => 'NILACHAL-STAY&TOUR'                                         
+        ); 
+
+        $this->render_view('Admin/pages/bookings/calendar', $data);
+
+
+    }
+
+    //Fetch Calendar data
+    public function calendar_json(){
+
+
+        $builder = $this->db->table('bookings');
+        $where = "booking_status='confirmed' OR booking_status='active'";
+        $builder->where($where);
+        $resultArray = $builder->get()->getResultArray();
+
+        foreach($resultArray as $row)
+        {
+                $data[] = array(
+                'id'   => $row["bk_id"],
+                'title'   => $row["booking_code"],
+                'start'   => $row["check_in"],
+                'end'   => $row["check_out"]
+                );
+        }
+
+        echo json_encode($data);
+
+
+    }
+
 }
 

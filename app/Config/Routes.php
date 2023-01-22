@@ -125,5 +125,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'] ,static functio
     //Settings
     $routes->match(['get','post'],'settings', 'Dashboard::settings', ['filter' => 'authadmin']);
 
+    //Calendar
+    $routes->get('bookings/calendar', 'Bookings::calendarView', ['filter' => 'authadmin']);
+    $routes->get('bookings/calendar_json', 'Bookings::calendar_json', ['filter' => 'authadmin']);
+
 
 });
