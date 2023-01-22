@@ -64,7 +64,7 @@ class Authenticate extends FrontendController
 
 
                     //Send Email Otp
-                   // $this->sendEmailOtp($email, $tempOTP);
+                   $this->sendEmailOtp($email, $tempOTP);
 
                    $session = session();
                    $session->setTempdata('email-item', $email, 120);
