@@ -49,7 +49,7 @@ $routes->get("my-bookings", "Frontend\Bookings::allBookings", ['filter' => 'auth
 $routes->match(['get','post'],"profile", "Frontend\Home::profile", ['filter' => 'authclient']);
 
 $routes->get('about-us', 'Frontend\Home::about');
-// $routes->match(['get', 'post'],'contact-us', 'Frontend\Home::contact');
+$routes->match(['get', 'post'],'contact-us', 'Frontend\Home::contact');
 
 $routes->get('logout', 'Frontend\Authenticate::logout');
 /*

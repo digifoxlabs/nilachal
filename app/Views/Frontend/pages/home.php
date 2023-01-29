@@ -9,7 +9,7 @@
                     <h6 style="color: black;background: #ffff;display: inline;" class="text-uppercase" data-caption-animate="fadeInRight" data-caption-delay="0">Enjoy the Best Staying Experince with Nilachal Hotel</h6>
                     <h2 style="color: white" class="oh font-weight-light" data-caption-animate="slideInUp" data-caption-delay="100">
                     <span class="font-weight-bold">Explore Kamakhaya Temple</span>
-                    </h3><a class="button button-primary button-ujarak" href="#" data-caption-animate="fadeInLeft" data-caption-delay="0">Get in touch</a>
+                    </h3><a class="button button-primary button-ujarak" href="<?= base_url('contact-us') ?>" data-caption-animate="fadeInLeft" data-caption-delay="0">Get in touch</a>
                   </div>
                 </div>
               </div>
@@ -88,16 +88,16 @@
                   <div class="tab-content">
                     <div class="tab-pane fade show active" id="tabs-7-1">
                       <p>Nilachal Hotel is a full service hotel - providing all the amenities & luxuries you need to make your stay in Guwahati comfortable & productive - all at an affordable price.</p>
-                      <div class="group-md group-middle"><a class="button button-secondary button-pipaluk" href="contact-us.php">Contact Us</a><a class="button button-black-outline button-md" href="about.php">Read More</a></div>
+                      <div class="group-md group-middle"><a class="button button-secondary button-pipaluk" href="<?= base_url('contact-us') ?>">Contact Us</a><a class="button button-black-outline button-md" href="about.php">Read More</a></div>
                     </div>
                     <div class="tab-pane fade" id="tabs-7-2">
                       <p>* We provide our guests a superior hospitality experience at excellent value in the market segment they want.</p>
                       <p>* We contribute positively to our communities and our environment.</p>
-                      <div class="group-md group-middle"><a class="button button-secondary button-pipaluk" href="contact-us.php">Contact Us</a><a class="button button-black-outline button-md" href="about.php">Read More</a></div>
+                      <div class="group-md group-middle"><a class="button button-secondary button-pipaluk" href="<?= base_url('contact-us') ?>">Contact Us</a><a class="button button-black-outline button-md" href="about.php">Read More</a></div>
                     </div>
                     <div class="tab-pane fade" id="tabs-7-3">
                       <p>Our mission is to provide the ultimate staying experience and superior hospitality experience</p>
-                      <div class="group-md group-middle"><a class="button button-secondary button-pipaluk" href="contact-us.php">Contact Us</a><a class="button button-black-outline button-md" href="about.php">Read More</a></div>
+                      <div class="group-md group-middle"><a class="button button-secondary button-pipaluk" href="<?= base_url('contact-us') ?>">Contact Us</a><a class="button button-black-outline button-md" href="about.php">Read More</a></div>
                     </div>
                   </div>
                 </div>
@@ -125,15 +125,13 @@
                       <div class="group-sm group-middle justify-content-start">
                         <div class="product-big-rating"><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star_half"></span></div><a class="product-big-reviews" href="#">Rating</a>
                       </div>
-                      <p class="product-big-text">Delux rooms are equipped with shower or bathtub and some of them with balcony overlooking hotel garden. Each room is air conditioned and has a flat-screen TV with international TV channels, cozy king size bed and spacious wardrobe.</p><a class="button button-black-outline button-ujarak" href="#">Book This Room</a>
-                      <div class="product-big-price-wrap"><span class="product-big-price">₹2300</span></div>
+                      <p class="product-big-text">Delux rooms are equipped with shower or bathtub and some of them with balcony overlooking hotel garden. Each room is air conditioned and has a flat-screen TV with international TV channels, cozy king size bed and spacious wardrobe.</p><a class="button button-black-outline button-ujarak" href="<?= base_url('bookings') ?>">Book This Room</a>
+                      <div class="product-big-price-wrap"><span class="product-big-price">₹3000</span></div>
                     </div>
                   </div>
                 </div>
               </article>
-
             </div>
-
 
             <div class="col-sm-6 col-md-12 wow fadeInLeft">
               <!-- Product Big-->
@@ -146,8 +144,8 @@
                       <div class="group-sm group-middle justify-content-start">
                         <div class="product-big-rating"><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star_half"></span></div><a class="product-big-reviews" href="#">Rating</a>
                       </div>
-                      <p class="product-big-text">Semi Delux rooms are equipped with shower or bathtub and some of them with balcony overlooking hotel garden. Each room is air conditioned and has a flat-screen TV with international TV channels, cozy king size bed and spacious wardrobe.</p><a class="button button-black-outline button-ujarak" href="#">Book This Room</a>
-                      <div class="product-big-price-wrap"><span class="product-big-price">₹2500</span></div>
+                      <p class="product-big-text">Semi Delux rooms are equipped with shower or bathtub and some of them with balcony overlooking hotel garden. Each room is air conditioned and has a flat-screen TV with international TV channels, cozy king size bed and spacious wardrobe.</p><a class="button button-black-outline button-ujarak" href="<?= base_url('bookings') ?>">Book This Room</a>
+                      <div class="product-big-price-wrap"><span class="product-big-price">₹4500</span></div>
                     </div>
                   </div>
                 </div>
@@ -165,8 +163,8 @@
                       <div class="group-sm group-middle justify-content-start">
                         <div class="product-big-rating"><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star"></span><span class="icon material-icons-star_half"></span></div><a class="product-big-reviews" href="#">Rating</a>
                       </div>
-                      <p class="product-big-text">Super Delux rooms are equipped with shower or bathtub and some of them with balcony overlooking hotel garden. Each room is air conditioned and has a flat-screen TV with international TV channels, cozy king size bed and spacious wardrobe.</p><a class="button button-black-outline button-ujarak" href="#">Book This Room</a>
-                      <div class="product-big-price-wrap"><span class="product-big-price">₹3500</span></div>
+                      <p class="product-big-text">Super Delux rooms are equipped with shower or bathtub and some of them with balcony overlooking hotel garden. Each room is air conditioned and has a flat-screen TV with international TV channels, cozy king size bed and spacious wardrobe.</p><a class="button button-black-outline button-ujarak" href="<?= base_url('bookings') ?>">Book This Room</a>
+                      <div class="product-big-price-wrap"><span class="product-big-price">₹6000</span></div>
                     </div>
                   </div>
                 </div>
