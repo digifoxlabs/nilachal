@@ -49,6 +49,9 @@ $routes->get("my-bookings", "Frontend\Bookings::allBookings", ['filter' => 'auth
 $routes->match(['get','post'],"profile", "Frontend\Home::profile", ['filter' => 'authclient']);
 
 $routes->get('about-us', 'Frontend\Home::about');
+$routes->get('terms-conditions', 'Frontend\Home::termsConditions');
+$routes->get('refund-policy', 'Frontend\Home::refund');
+$routes->get('privacy-policy', 'Frontend\Home::privacy');
 $routes->match(['get', 'post'],'contact-us', 'Frontend\Home::contact');
 
 $routes->get('logout', 'Frontend\Authenticate::logout');

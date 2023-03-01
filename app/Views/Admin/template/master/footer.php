@@ -65,7 +65,8 @@
     <?=link_tag('public/assets/frontend/css/jquery.datetimepicker.css')?>   
 
 <?= script_tag('public/assets/frontend/js/jquery.datetimepicker.full.min.js') ?>
-<?= script_tag('public/assets/frontend/js/myscript.js') ?>
+
+<?= script_tag('public/assets/admin/js/myscript.js') ?>
 
 
 </body>

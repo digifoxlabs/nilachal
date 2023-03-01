@@ -119,6 +119,37 @@ class Home extends FrontendController
 
     }
 
+    //Terms and conditions
+    public function termsConditions(){
+
+        $data = array( 
+            'pageTitle' => 'NILACHAL-STAY&TOUR'                                         
+        ); 
+
+        $this->render_view('Frontend/pages/terms-conditions',$data); 
+
+    }
+    //Refund Policy
+    public function refund(){
+
+        $data = array( 
+            'pageTitle' => 'NILACHAL-STAY&TOUR'                                         
+        ); 
+
+        $this->render_view('Frontend/pages/refund-policy',$data); 
+
+    }
+    //Privacy Policy
+    public function privacy(){
+
+        $data = array( 
+            'pageTitle' => 'NILACHAL-STAY&TOUR'                                         
+        ); 
+
+        $this->render_view('Frontend/pages/privacy-policy',$data); 
+
+    }
+
 
     //Contact
     public function contact(){

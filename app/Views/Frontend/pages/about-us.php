@@ -1,269 +1,200 @@
 <!-- Breadcrumbs -->
 <section class="breadcrumbs-custom-inset">
-        <div class="breadcrumbs-custom context-dark bg-overlay-60">
-          <div class="container">
+    <div class="breadcrumbs-custom context-dark bg-overlay-60">
+        <div class="container">
             <h2 class="breadcrumbs-custom-title">About</h2>
             <ul class="breadcrumbs-custom-path">
-              <li><a href="index.html">Home</a></li>
-              <li class="active">About</li>
+                <li><a href="index.html">Home</a></li>
+                <li class="active">About</li>
             </ul>
-          </div>
-          <div class="box-position" style="background-image: url(<?= base_url("assets/frontend/img/about-carousal.jpg") ?>);"></div>
         </div>
-      </section>
-        
+        <div class="box-position" style="background-image: url(<?= base_url("assets/frontend/img/FV_Hotel.jpg") ?>);">
+        </div>
+    </div>
+</section>
 
-      <!-- Why choose us-->
-      <section class="section section-sm section-first bg-default text-md-left">
-        <div class="container">
-          <div class="row row-50 justify-content-center align-items-xl-center">
-            <div class="col-md-10 col-lg-5 col-xl-6"><img src="<?= base_url("assets/frontend/img/FV_Hotel.jpg") ?>" alt="" width="519" height="564"/>
+
+<section class="section section-sm section-first bg-default">
+    <div class="container">
+        <h2 class="text-spacing-20 font-weight-normal title-opacity-5 text-center">About Nilachal Stay & Tour</h2>
+        <p class="box-contacts-link text-center"> Nilachal Stay & Tour is a Premium Hotel at Kamakhya, Guwahati, Assam. Here we provide
+            both fooding and lodging to our guests. We're dedicated to provide the best stay experinece at Kamakhya,
+            Guwahati, Assam.</p>
+    </div>
+</section>
+
+<!-- Why choose us-->
+<section class="section section-fluid bg-default">
+    <div class="container">
+        <div class="row row-50 justify-content-center align-items-xl-center">
+     
+            <div class="col-md-8 col-lg-12 col-xl-12">
+            <h2 class="text-spacing-20 font-weight-normal title-opacity-5 text-center">Why choose us</h2>
+                <ul class="list-marked list-marked-sm list-marked-secondary">
+                    <li class="title-classic-text"><strong>Incredible Selection of Rooms</strong><br>
+                        We have a wide range of room selection Double, Triple and Four Occupance with Semi-Deluxe,
+                        Deluxe and Family Room Category.
+                    </li>
+                    <li class="title-classic-text">
+                        <strong>Low Rates</strong><br>
+                        nilachalstaytour.com guarantees to offer you the best available rates. And with our promise to price match, you can rest assured that you’re always getting a great deal.
+                    </li>
+                    <li class="title-classic-text">
+                        <strong>Instant Confirmation</strong><br>
+                        Every reservation is instantly confirmed. It takes only a few click to book your perfect stay at Nilachal Stay &amp; Tour </li>
+                    <li class="title-classic-text">
+                        <strong>No Cancellation Fees</strong><br>
+                        Cancellation of Booking is free of charge </li>
+                    <li class="title-classic-text">
+                        <strong>Secure Booking</strong><br>
+                        Every booking on is performed through our secure platform and work to the highest standards to guarantee your privacy </li>
+                    <li class="title-classic-text">
+                        <strong>24/7 Support</strong><br>
+                        Our Customer Experience Team is available around the clock to answer your questions  </li>
+                </ul>                
             </div>
-            <div class="col-md-10 col-lg-7 col-xl-6">
-              <h1 class="text-spacing-25 font-weight-normal title-opacity-9">Why choose us</h1>
-              <!-- Bootstrap tabs-->
-              <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-4">
-                <!-- Nav tabs-->
-                <ul class="nav nav-tabs">
-                  <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-4-1" data-toggle="tab">Experience</a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-4-2" data-toggle="tab">Skills</a></li>
-                  <li class="nav-item" role="presentation"><a class="nav-link" href="#tabs-4-3" data-toggle="tab">Mission</a></li>
-                </ul>
-                <!-- Tab panes-->
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="tabs-4-1">
-                    <p>Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.</p>
-                    <!-- Linear progress bar-->
-                    <article class="progress-linear progress-secondary">
-                      <div class="progress-header">
-                        <p>Tours</p>
-                      </div>
-                      <div class="progress-bar-linear-wrap">
-                        <div class="progress-bar-linear" data-gradient=""><span class="progress-value">79</span><span class="progress-marker"></span></div>
-                      </div>
-                    </article>
-                    <!-- Linear progress bar-->
-                    <article class="progress-linear progress-orange">
-                      <div class="progress-header">
-                        <p>Excursions</p>
-                      </div>
-                      <div class="progress-bar-linear-wrap">
-                        <div class="progress-bar-linear" data-gradient=""><span class="progress-value">72</span><span class="progress-marker"></span></div>
-                      </div>
-                    </article>
-                    <!-- Linear progress bar-->
-                    <article class="progress-linear">
-                      <div class="progress-header">
-                        <p>Hotel Bookings</p>
-                      </div>
-                      <div class="progress-bar-linear-wrap">
-                        <div class="progress-bar-linear" data-gradient=""><span class="progress-value">88</span><span class="progress-marker"></span></div>
-                      </div>
-                    </article>
-                  </div>
-                  <div class="tab-pane fade" id="tabs-4-2">
-                    <div class="row row-40 justify-content-center text-center inset-top-10">
-                      <div class="col-sm-4">
-                        <!-- Circle Progress Bar-->
-                        <div class="progress-bar-circle" data-value="0.90" data-gradient="#01b3a7" data-empty-fill="transparent" data-size="150" data-thickness="12" data-reverse="true"><span></span></div>
-                        <p class="progress-bar-circle-title">Atmosphere</p>
-                      </div>
-                      <div class="col-sm-4">
-                        <!-- Circle Progress Bar-->
-                        <div class="progress-bar-circle" data-value="0.95" data-gradient="#01b3a7" data-empty-fill="transparent" data-size="150" data-thickness="12" data-reverse="true"><span></span></div>
-                        <p class="progress-bar-circle-title">Cleaness</p>
-                      </div>
-                      <div class="col-sm-4">
-                        <!-- Circle Progress Bar-->
-                        <div class="progress-bar-circle" data-value="0.99" data-gradient="#01b3a7" data-empty-fill="transparent" data-size="150" data-thickness="12" data-reverse="true"><span></span></div>
-                        <p class="progress-bar-circle-title">Hotel Bookings</p>
-                      </div>
-                    </div>
-                    <div class="group-md group-middle"><a class="button button-width-xl-230 button-primary button-pipaluk" href="#">Get in touch</a><a class="button button-black-outline button-width-xl-230" href="#">Read more</a></div>
-                  </div>
-                  <div class="tab-pane fade" id="tabs-4-3">
-                    <p>Orci nulla pellentesque dignissim enim sit. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus. Nibh mauris cursus mattis molestie a iaculis at erat pellentesque.</p>
-                    <div class="text-center text-sm-left offset-top-30 tab-height">
-                      <ul class="row-16 list-0 list-custom list-marked list-marked-sm list-marked-secondary">
-                        <li>Lorem ipsum</li>
-                        <li>Consectetur adipiscing</li>
-                        <li>Sed do eiusmod</li>
-                        <li>Tempor incididunt</li>
-                        <li>Sem fringilla</li>
-                        <li>Ut venenatis</li>
-                      </ul>
-                    </div>
-                    <div class="group-md group-middle"><a class="button button-width-xl-230 button-primary button-pipaluk" href="#">Get in touch</a><a class="button button-black-outline button-md" href="#">Download presentation</a></div>
-                  </div>
+        </div>
+    </div>
+</section>
+
+<!-- New Section -->
+<section class="section section-sm section-fluid bg-default">
+    <div class="container">
+        <h3>Nearest Destinations</h3>
+    </div>
+    <!-- Owl Carousel-->
+    <div class="owl-carousel owl-classic owl-timeline" data-items="1" data-md-items="2" data-lg-items="3"
+        data-xl-items="4" data-margin="30" data-autoplay="false" data-nav="true" data-dots="true">
+
+        <div class="owl-item">
+            <!-- Thumbnail Classic-->
+            <article class="thumbnail thumbnail-mary">
+                <div class="thumbnail-mary-figure"><img src="<?= base_url("assets/frontend/img/meghalaya.jpg") ?>"
+                        alt="" width="420px" min-height="308px" />
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- New Section -->
-      <section class="section section-sm section-fluid bg-default">
-        <div class="container">
-          <h3>Nearest Destinations</h3>
-        </div>
-        <!-- Owl Carousel-->
-        <div class="owl-carousel owl-classic owl-timeline" data-items="1" data-md-items="2" data-lg-items="3" data-xl-items="4" data-margin="30" data-autoplay="false" data-nav="true" data-dots="true">
-
-          <div class="owl-item">
-            <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary">
-              <div class="thumbnail-mary-figure"><img src="<?= base_url("assets/frontend/img/meghalaya.jpg") ?>" alt="" width="420" height="308"/>
-              </div>
-              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="#" data-lightgallery="item"><img src="" alt="" width="420" height="308"/></a>
-              </div>
-            </article>
-            <div class="thumbnail-mary-description">
-              <h5 class="thumbnail-mary-project"><a href="#">Meghalaya</a></h5><span class="thumbnail-mary-decor"></span>
-              <h5 class="thumbnail-mary-time">
-              </h5>
-            </div>
-          </div>
-
-          <div class="owl-item">
-            <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary">
-              <div class="thumbnail-mary-figure"><img src="<?= base_url("assets/frontend/img/dawki.jpg") ?>" alt="" width="420" height="308"/>
-              </div>
-              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="#" data-lightgallery="item"><img src="" alt="" width="420" height="308"/></a>
-              </div>
-            </article>
-            <div class="thumbnail-mary-description">
-              <h5 class="thumbnail-mary-project"><a href="#">Dawki</a></h5><span class="thumbnail-mary-decor"></span>
-              <h5 class="thumbnail-mary-time">
-              </h5>
-            </div>
-          </div>
-
-          <div class="owl-item">
-            <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary">
-              <div class="thumbnail-mary-figure"><img src="<?= base_url("assets/frontend/img/manas.jpg") ?>" alt="" width="420" height="308"/>
-              </div>
-              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="#" data-lightgallery="item"><img src="" alt="" width="420" height="308"/></a>
-              </div>
-            </article>
-            <div class="thumbnail-mary-description">
-              <h5 class="thumbnail-mary-project"><a href="#">Manas</a></h5><span class="thumbnail-mary-decor"></span>
-              <h5 class="thumbnail-mary-time">
-              </h5>
-            </div>
-          </div>
-
-          <div class="owl-item">
-            <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary">
-              <div class="thumbnail-mary-figure"><img src="<?= base_url("assets/frontend/img/kaziranga.jpg") ?>" alt="" width="420" height="308"/>
-              </div>
-              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="#" data-lightgallery="item"><img src="" alt="" width="420" height="308"/></a>
-              </div>
-            </article>
-            <div class="thumbnail-mary-description">
-              <h5 class="thumbnail-mary-project"><a href="#">Kaziranga</a></h5><span class="thumbnail-mary-decor"></span>
-              <h5 class="thumbnail-mary-time">
-              </h5>
-            </div>
-          </div>
-
-          <div class="owl-item">
-            <!-- Thumbnail Classic-->
-            <article class="thumbnail thumbnail-mary">
-              <div class="thumbnail-mary-figure"><img src="images/Meghalaya.jpg" alt="" width="420" height="308"/>
-              </div>
-              <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="#" data-lightgallery="item"><img src="" alt="" width="420" height="308"/></a>
-              </div>
-            </article>
-            <div class="thumbnail-mary-description">
-              <h5 class="thumbnail-mary-project"><a href="#">Meghalaya</a></h5><span class="thumbnail-mary-decor"></span>
-              <h5 class="thumbnail-mary-time">
-              </h5>
-            </div>
-          </div>
-
-        </div>
-      </section>
-        
-      <!-- What people Say-->
-      <section class="section section-sm section-last bg-default">
-        <div class="container">
-          <h3>What People Say</h3>
-          <!-- Owl Carousel-->
-          <div class="owl-carousel owl-modern" data-items="1" data-stage-padding="15" data-margin="30" data-dots="true" data-animation-in="fadeIn" data-animation-out="fadeOut" data-autoplay="true">
-            <!-- Quote Lisa-->
-            <article class="quote-lisa">
-              <div class="quote-lisa-body"><a class="quote-lisa-figure" href="#"><img class="img-circles" src="images/user-16-100x100.jpg" alt="" width="100" height="100"/></a>
-                <div class="quote-lisa-text">
-                  <p class="q">Pharetra vel turpis nunc eget lorem dolor sed viverra ipsum. Diam phasellus vestibulum lorem sed risus ultricies. Aenean et tortor at risus viverra adipiscing. Aliquet enim tortor at auctor urna. Tortor aliquam nulla facilisi cras fermentum. Malesuada pellentesque elit eget gravida cum sociis natoque.</p>
+                <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="#"
+                        data-lightgallery="item"><img src="" alt="" width="420" height="308" /></a>
                 </div>
-                <h5 class="quote-lisa-cite"><a href="#">Client 1</a></h5>
-                <p class="quote-lisa-status">Regular Client</p>
-              </div>
             </article>
-            <!-- Quote Lisa-->
-            <article class="quote-lisa">
-              <div class="quote-lisa-body"><a class="quote-lisa-figure" href="#"><img class="img-circles" src="images/user-17-100x100.jpg" alt="" width="100" height="100"/></a>
-                <div class="quote-lisa-text">
-                  <p class="q">Sodales ut etiam sit amet nisl purus. Maecenas accumsan lacus vel facilisis volutpat est. Suscipit adipiscing bibendum est ultricies integer quis auctor. Viverra aliquet eget sit amet tellus cras adipiscing. Posuere ac ut consequat semper viverra nam libero justo laoreet. Iaculis eu non diam phasellus vestibulum lorem sed risus ultricies.</p>
-                </div>
-                <h5 class="quote-lisa-cite"><a href="#">Client 2</a></h5>
-                <p class="quote-lisa-status">Regular Client</p>
-              </div>
-            </article>
-            <!-- Quote Lisa-->
-            <article class="quote-lisa">
-              <div class="quote-lisa-body"><a class="quote-lisa-figure" href="#"><img class="img-circles" src="images/user-18-100x100.jpg" alt="" width="100" height="100"/></a>
-                <div class="quote-lisa-text">
-                  <p class="q">Lacus vestibulum sed arcu non odio euismod lacinia. Pellentesque elit ullamcorper dignissim cras. Ultrices eros in cursus turpis massa tincidunt dui. Nunc pulvinar sapien et ligula ullamcorper malesuada proin. Commodo odio aenean sed adipiscing diam. Sed euismod nisi porta lorem mollis aliquam.</p>
-                </div>
-                <h5 class="quote-lisa-cite"><a href="#">Client 3</a></h5>
-                <p class="quote-lisa-status">Regular Client</p>
-              </div>
-            </article>
-          </div>
+            <div class="thumbnail-mary-description">
+                <h5 class="thumbnail-mary-project"><a href="#">Meghalaya</a></h5><span
+                    class="thumbnail-mary-decor"></span>
+                <h5 class="thumbnail-mary-time">
+                </h5>
+            </div>
         </div>
-      </section>
-      <!--Counters-->
-      <!-- Counter Classic-->
-      <section class="section section-fluid bg-default">
-        <div class="parallax-container" data-parallax-img="images/bg-counter-2.jpg">
-          <div class="parallax-content section-xl context-dark bg-overlay-26">
+
+        <div class="owl-item">
+            <!-- Thumbnail Classic-->
+            <article class="thumbnail thumbnail-mary">
+                <div class="thumbnail-mary-figure"><img src="<?= base_url("assets/frontend/img/dawki.jpg") ?>" alt=""
+                        width="420px"min- height="308px" />
+                </div>
+                <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="#"
+                        data-lightgallery="item"><img src="" alt="" width="420" height="308" /></a>
+                </div>
+            </article>
+            <div class="thumbnail-mary-description">
+                <h5 class="thumbnail-mary-project"><a href="#">Dawki</a></h5><span class="thumbnail-mary-decor"></span>
+                <h5 class="thumbnail-mary-time">
+                </h5>
+            </div>
+        </div>
+
+        <div class="owl-item">
+            <!-- Thumbnail Classic-->
+            <article class="thumbnail thumbnail-mary">
+                <div class="thumbnail-mary-figure"><img src="<?= base_url("assets/frontend/img/manas.jpg") ?>" alt=""/>
+                </div>
+                <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="#"
+                        data-lightgallery="item"><img src="" alt="" width="420" height="308" /></a>
+                </div>
+            </article>
+            <div class="thumbnail-mary-description">
+                <h5 class="thumbnail-mary-project"><a href="#">Manas</a></h5><span class="thumbnail-mary-decor"></span>
+                <h5 class="thumbnail-mary-time">
+                </h5>
+            </div>
+        </div>
+
+        <div class="owl-item">
+            <!-- Thumbnail Classic-->
+            <article class="thumbnail thumbnail-mary">
+                <div class="thumbnail-mary-figure"><img src="<?= base_url("assets/frontend/img/kaziranga.jpg") ?>"
+                        alt="" max-width="420px" max-height="308px" />
+                </div>
+                <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="#"
+                        data-lightgallery="item"><img src="" alt="" max-width="420px" max-height="308px" /></a>
+                </div>
+            </article>
+            <div class="thumbnail-mary-description">
+                <h5 class="thumbnail-mary-project"><a href="#">Kaziranga</a></h5><span
+                    class="thumbnail-mary-decor"></span>
+                <h5 class="thumbnail-mary-time">
+                </h5>
+            </div>
+        </div>
+
+        <div class="owl-item">
+            <!-- Thumbnail Classic-->
+            <article class="thumbnail thumbnail-mary">
+                <div class="thumbnail-mary-figure"><img src="<?= base_url("assets/frontend/img/meghalaya.jpg") ?>"
+                        alt="" width="420px" min-height="308px" />
+                </div>
+                <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60" href="#"
+                        data-lightgallery="item"><img src="" alt="" width="420" height="308" /></a>
+                </div>
+            </article>
+            <div class="thumbnail-mary-description">
+                <h5 class="thumbnail-mary-project"><a href="#">Meghalaya</a></h5><span
+                    class="thumbnail-mary-decor"></span>
+                <h5 class="thumbnail-mary-time">
+                </h5>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!--Counters-->
+<!-- Counter Classic-->
+<section class="section section-fluid bg-default">
+    <div class="parallax-container" data-parallax-img="images/bg-counter-2.jpg">
+        <div class="parallax-content section-xl context-dark bg-overlay-26">
             <div class="container">
-              <div class="row row-50 justify-content-center border-classic">
-                <div class="col-sm-6 col-md-5 col-lg-3">
-                  <div class="counter-classic">
-                    <div class="counter-classic-number"><span class="counter">12</span>
+                <div class="row row-50 justify-content-center border-classic">
+                    <div class="col-sm-6 col-md-5 col-lg-3">
+                        <div class="counter-classic">
+                            <div class="counter-classic-number"><span class="counter">12</span>
+                            </div>
+                            <h5 class="counter-classic-title">Awards</h5>
+                        </div>
                     </div>
-                    <h5 class="counter-classic-title">Awards</h5>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-3">
-                  <div class="counter-classic">
-                    <div class="counter-classic-number"><span class="counter">100+</span>
+                    <div class="col-sm-6 col-md-5 col-lg-3">
+                        <div class="counter-classic">
+                            <div class="counter-classic-number"><span class="counter">100+</span>
+                            </div>
+                            <h5 class="counter-classic-title">Bookings</h5>
+                        </div>
                     </div>
-                    <h5 class="counter-classic-title">Bookings</h5>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-3">
-                  <div class="counter-classic">
-                    <div class="counter-classic-number"><span class="counter">2</span><span class="symbol">k</span>
+                    <div class="col-sm-6 col-md-5 col-lg-3">
+                        <div class="counter-classic">
+                            <div class="counter-classic-number"><span class="counter">2</span><span
+                                    class="symbol">k</span>
+                            </div>
+                            <h5 class="counter-classic-title">Customers</h5>
+                        </div>
                     </div>
-                    <h5 class="counter-classic-title">Customers</h5>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-3">
-                  <div class="counter-classic">
-                    <div class="counter-classic-number"><span class="counter">25</span>
+                    <div class="col-sm-6 col-md-5 col-lg-3">
+                        <div class="counter-classic">
+                            <div class="counter-classic-number"><span class="counter">25</span>
+                            </div>
+                            <h5 class="counter-classic-title">Staff</h5>
+                        </div>
                     </div>
-                    <h5 class="counter-classic-title">Staff</h5>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </section>
+    </div>
+</section>

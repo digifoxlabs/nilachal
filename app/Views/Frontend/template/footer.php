@@ -54,9 +54,9 @@
                   <div class="wow slideInLeft" data-wow-delay="0s">
                     <h6 class="text-spacing-100 text-uppercase">Quick links</h6>
                     <ul class="row-6 list-0 list-marked list-marked-md list-marked-secondary list-custom-1">
-                      <li><a href="<?= base_url('/about-us') ?>">About us</a></li>
-                      <li><a href="<?= base_url('/contact-us') ?>">Contact US</a></li>
-                      <li><a href="#">Gallery</a></li>
+                      <li><a href="<?= base_url('/terms-conditions') ?>">Terms &amp; Conditions</a></li>
+                      <li><a href="<?= base_url('/refund-policy') ?>">Refund Policy</a></li>
+                      <li><a href="<?= base_url('/privacy-policy') ?>">Privacy Policy</a></li>
                     </ul>
                     <div class="group-md group-middle justify-content-sm-start"><a class="button button-sm button-primary button-ujarak" href="<?= base_url('/bookings') ?>">Book A Room</a></div>
                   </div>
