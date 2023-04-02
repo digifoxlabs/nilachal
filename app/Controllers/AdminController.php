@@ -75,4 +75,13 @@ class AdminController extends BaseController
             return ($end-$start)/86400;
         }
     }
+
+    //Get Guest Details By Booking ID
+    public function getGuestDetailsById($bkCode,$colName){
+        $builder = $this->db->table("bookings");
+		$builder->select($colName);
+        $builder->where('booking_code',$bkCode);
+		return $builder->get()->getRow()->$colName;  
+    }
+
 }

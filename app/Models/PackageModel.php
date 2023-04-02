@@ -4,23 +4,19 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class RoomModel extends Model
+class PackageModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'rooms';
-    protected $primaryKey       = 'room_id';
+    protected $table            = 'packages';
+    protected $primaryKey       = 'package_id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'room_id',
-        'cat_id',
-        'room_no',
-        'status',
-        'booking_code',
-        'tv_package_expiry',
+    'package','validity','amount'
+
     ];
 
     // Dates

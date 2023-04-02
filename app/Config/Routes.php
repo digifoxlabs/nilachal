@@ -80,6 +80,7 @@ if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 $routes->group('admin', ['namespace' => 'App\Controllers\Admin'] ,static function ($routes) {
 
     $routes->get("/", 'Dashboard::index', ['filter' => 'authadmin']);
+    $routes->get("dashboard/2", 'Dashboard::index2', ['filter' => 'authadmin']);
     $routes->get('dashboard', 'Dashboard::index', ['filter' => 'authadmin']);
 
     $routes->match(['get', 'post'], 'login', 'Users::login', ['filter' => 'noauthadmin']);
@@ -127,6 +128,19 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'] ,static functio
 
     //Settings
     $routes->match(['get','post'],'settings', 'Dashboard::settings', ['filter' => 'authadmin']);
+
+    //TV packages
+    $routes->match(['get','post'],'packages/manage', 'Tvpackages::manage', ['filter' => 'authadmin']);
+    $routes->match(['get','post'],'packages/create', 'Tvpackages::create', ['filter' => 'authadmin']);
+    $routes->match(['get','post'],'packages/update', 'Tvpackages::update', ['filter' => 'authadmin']);
+    $routes->match(['get','post'],'packages/delete', 'Tvpackages::delete', ['filter' => 'authadmin']);
+
+    //Assign TV packages to Room
+    $routes->match(['get','post'],'packages/assignRoom', 'Tvpackages::assign_room', ['filter' => 'authadmin']);
+    $routes->match(['get','post'],'packages/updateRoom', 'Tvpackages::assign_room_package', ['filter' => 'authadmin']);
+
+    //Transactions
+    $routes->match(['get','post'],'transactions', 'Transactions::index', ['filter' => 'authadmin']);
 
     //Calendar
     $routes->get('bookings/calendar', 'Bookings::calendarView', ['filter' => 'authadmin']);

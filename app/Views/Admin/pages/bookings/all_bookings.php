@@ -65,6 +65,9 @@
 
     $(document).ready(function() {
 
+        $("#bookingMenu").addClass('show');
+         $("#bookingAll").addClass('active');
+
 
         var dataTable = $('#dataTable').DataTable({
             lengthMenu: [

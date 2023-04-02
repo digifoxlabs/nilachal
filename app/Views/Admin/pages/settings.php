@@ -77,3 +77,12 @@
 
 </div>
 <!-- /.container-fluid -->
+
+<script>
+$(document).ready(function() {
+    
+    $("#settingsMenu").addClass('active'); 
+
+});
+
+</script>   

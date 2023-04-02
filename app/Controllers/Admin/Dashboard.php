@@ -16,7 +16,7 @@ class Dashboard extends AdminController
         $this->db = db_connect();
     }
 
-    public function index(){
+    public function index2(){
 
         //Fetch Rioom category
         $modelCat = new CategoryModel();
@@ -32,6 +32,22 @@ class Dashboard extends AdminController
             'newCheckOut' => $this->todayCheckOut(),                                   
              );  
        $this-> render_view("Admin/pages/dashboard",$data);
+    }
+
+    public function index(){
+
+        //Fetch Rioom category
+        $modelCat = new CategoryModel();
+        $catData = $modelCat->findAll();        
+
+        $data = array( 
+            'pageTitle' => 'NILACHAL-ADMIN',
+            'catData' => $catData,      
+            'newBookings' => $this->newBookings(),                                   
+            'newCheckIN' => $this->todayCheckIN(),                                   
+            'newCheckOut' => $this->todayCheckOut(),                                   
+             );  
+       $this-> render_view("Admin/pages/dashboard2",$data);
     }
 
     //Bed Design Count

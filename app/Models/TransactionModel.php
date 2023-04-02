@@ -4,24 +4,27 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class RoomModel extends Model
+class TransactionModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'rooms';
-    protected $primaryKey       = 'room_id';
+    protected $table            = 'transactions';
+    protected $primaryKey       = 'tx-id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'room_id',
-        'cat_id',
-        'room_no',
-        'status',
-        'booking_code',
-        'tv_package_expiry',
-    ];
+        'transaction-id',
+        'key',
+        'amount',
+        'name',
+        'email',
+        'phone',
+        'product-info',
+        'surl',
+        'furl',
+        'hash'];
 
     // Dates
     protected $useTimestamps = false;

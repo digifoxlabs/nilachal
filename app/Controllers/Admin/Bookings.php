@@ -423,7 +423,7 @@ class Bookings extends AdminController
                         $booking_amt = $this->request->getVar('total_price');
                         $state_gst = $this->request->getVar('sgst');
                         $central_gst = $this->request->getVar('cgst');  
-                        $mode = $this->request->getVar('payment_mode');                      
+                        $pay_mode = $this->request->getVar('payment_mode');                      
                         $discount = $this->request->getVar('discount');
                         $payable_amt = $this->request->getVar('payable_amt');                        
                         $advance = $this->request->getVar('amt_paid');                        
@@ -497,6 +497,24 @@ class Bookings extends AdminController
                         );
                         $builder2 = $this->db->table('bookings');
                         $builder2->insert($bookData);   
+
+
+                        //Save Transactions
+                        $transData = array(
+
+                            'transaction_id'=>$bookingCode,
+                            'key'=>'OFL',
+                            'product_info'=>$payment_status,
+                            'name'=>$guest_name,
+                            'amount'=>$advance,
+                            'phone'=>$guest_mobile,
+                            'email'=>$guest_email,
+                            'hash'=>$pay_mode
+                        
+                        );
+                        $builder3 = $this->db->table('transactions');
+                        $builder3->insert($transData);   
+
 
                         return redirect()->to(base_url('admin/bookings'));            
 
@@ -918,6 +936,25 @@ class Bookings extends AdminController
                 $builder3->update();
 
                 /**Todo Insert Payment Transaction */
+                
+                  $transData = array(
+
+                    'transaction_id'=>$code,
+                    'key'=>'OFL',
+                    'product_info'=>'settled',
+                    'name'=> $this->getGuestDetailsById($code,'guest_name'),
+                    'amount'=>$balance,
+                    'phone'=> $this->getGuestDetailsById($code,'guest_mobile'),
+                    'email'=> null,
+                    'hash'=>$mode
+                
+                );
+                $builder4 = $this->db->table('transactions');
+                $builder4->insert($transData);   
+
+
+
+
 
                 return redirect()->to(base_url('admin/bookings/checkOut?booking='.$code));  
 

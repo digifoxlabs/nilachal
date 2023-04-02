@@ -49,6 +49,9 @@
 
     $(document).ready(function() {
 
+        $("#bookingMenu").addClass('show');
+         $("#bookingPending").addClass('active');
+
 
         var dataTable = $('#dataTable').DataTable({
             lengthMenu: [

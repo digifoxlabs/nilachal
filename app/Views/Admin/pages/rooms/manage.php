@@ -140,3 +140,12 @@ $(document).ready(function() {
 });
 
 </script>
+
+<script>
+$(document).ready(function() {
+    
+    $("#roomMenu").addClass('active'); 
+
+});
+
+</script>   

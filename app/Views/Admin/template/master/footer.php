@@ -58,7 +58,10 @@
     
     <!-- Page level custom scripts -->
     <?=script_tag('public/assets/admin/js/demo/datatables-demo.js')?>  
-    
+
+    <!-- Date JS -->
+    <?=script_tag('public/assets/admin/vendor/datejs/date.js')?>  
+
     <!--Full Calendar-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
 

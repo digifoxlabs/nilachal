@@ -72,6 +72,10 @@
                         </span>
                     <span class='text hover' id='<?php echo "booking"; ?>'><?php echo $room_no; ?></span>
                     </a>
+
+
+
+                    
               <?php  } 
 
                 else if($room['status'] == 'available'){
