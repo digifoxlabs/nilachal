@@ -14,7 +14,7 @@ class Payment extends FrontendController
         
         $status = $this->input->post('status');
         if (empty($status)) {
-              redirect('Welcome');
+              return redirect()->to(base_url('my-bookings'));    
           }
          
           $firstname = $this->input->post('firstname');
