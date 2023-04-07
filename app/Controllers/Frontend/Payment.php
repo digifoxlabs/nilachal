@@ -20,10 +20,12 @@ class Payment extends FrontendController
           $firstname = $this->request->getVar('firstname');
           $amount = $this->request->getVar('amount');
           $txnid = $this->request->getVar('txnid');
+          $payid = $this->request->getVar('mihpayid');
           $posted_hash = $this->request->getVar('hash');
           $key = $this->request->getVar('key');
           $productinfo = $this->request->getVar('productinfo');
           $email = $this->request->getVar('email');
+          $mode = $this->request->getVar('mode');
           $salt = "UUvOK5cWac8GqrlmSM5uxUcBHuCM5dCR"; //  Your salt
           $add = $this->request->getVar('additionalCharges');
           If (isset($add)) {
@@ -59,7 +61,7 @@ class Payment extends FrontendController
 
                     'transaction_id'=>$bookingCode,
                     'key'=>$key,
-                    'product_info'=>'settled',
+                    'product_info'=>$payid,
                     'name'=> $firstname,
                     'amount'=> $amount,
                     'phone'=> $guestMobile,
