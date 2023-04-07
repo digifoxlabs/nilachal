@@ -226,10 +226,17 @@ class Bookings extends FrontendController
                         // $data['address'] = $this->request->getVar('address');
         
                         //Load Config
-                        $siteConfig = new \Config\MyConfig();
+                       // $siteConfig = new \Config\MyConfig();
+
+                        //Load Settings value
+                        $data['gst_applied'] = $this->getSettingsvalues('gst');
+                        $data['discount'] = $this->getSettingsvalues('discount');
+                        $data['currency'] = $this->getSettingsvalues('currency');
+
+
         
-                        $data['gst_applied'] = $siteConfig->gst;  
-                        $data['discount'] = $siteConfig->mydiscount;  
+                       // $data['gst_applied'] = $siteConfig->gst;  
+                      //  $data['discount'] = $siteConfig->mydiscount;  
         
                         $this->render_view('Frontend/pages/bookings/preview',$data); 
                         break;
