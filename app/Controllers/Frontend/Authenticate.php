@@ -134,6 +134,12 @@ class Authenticate extends FrontendController
                 $client_email = $this->request->getVar('email');
                 $client_entered_otp = $this->request->getVar('otp');
 
+                // echo $client_email;
+                // echo '<br>';
+                // echo $client_entered_otp;
+                // exit;
+
+
                $check =  $this->verifyOtp($client_entered_otp, $client_email);
                if($check){ 
                 
@@ -142,9 +148,11 @@ class Authenticate extends FrontendController
                  * Check for Guest Profile and IF Empty Create profile
                  */
                $clientLog = $this->setClientSession($client_email);
-               if($clientLog){
 
-                 return redirect()->to(base_url('/bookings'));
+               
+
+               if($clientLog){
+                     return redirect()->to(base_url('/bookings'));
                }
             
                 }
@@ -234,17 +242,12 @@ class Authenticate extends FrontendController
     {
 
         //Check for User Profile
-        $builder = $this->db->table("clients");
-        $builder->select('email');
-        $builder->where('email',$setEmail);
+        $builderx = $this->db->table("clients");
+        $builderx->select('*');
+        $builderx->where('email', $setEmail);
+        $userData = $builderx->get()->getRow();
 
-        if($builder->get()->getNumRows() > 0){
-
-            //Get Data
-            $userData = $builder->get()->getRow();
-            if(isset($userData)){
-
-                  //  echo $userData->email;
+        if($userData){
 
                     $data = [
                         'cl_id' => $userData->cl_id,
@@ -253,9 +256,7 @@ class Authenticate extends FrontendController
                         'email' => $userData->email,
                         'user_type' => 'client',
                         'isLoggedInClient' => true,
-                    ];
-
-            }
+                    ];      
         }
 
         else {
@@ -267,7 +268,7 @@ class Authenticate extends FrontendController
                 'mobile'  => null,
             ];
             
-            $builder->insert($dataInsert);
+            $builderx->insert($dataInsert);
 
             $data = [
                 'cl_id' => $this->db->insertID(),
@@ -280,7 +281,6 @@ class Authenticate extends FrontendController
 
         }
         //return $builder->get()->getRow()->value;
-
 
         session()->set($data);
         return true;
