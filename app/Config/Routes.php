@@ -55,6 +55,10 @@ $routes->get('privacy-policy', 'Frontend\Home::privacy');
 $routes->match(['get', 'post'],'contact-us', 'Frontend\Home::contact');
 
 $routes->get('logout', 'Frontend\Authenticate::logout');
+
+//Payment
+$routes->match(['get','post'],'payment/status', 'Frontend/Payment::index', ['filter' => 'authclient']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
@@ -146,8 +150,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'] ,static functio
     $routes->get('bookings/calendar', 'Bookings::calendarView', ['filter' => 'authadmin']);
     $routes->get('bookings/calendar_json', 'Bookings::calendar_json', ['filter' => 'authadmin']);
 
-    //Payment
-    $routes->match(['get','post'],'payment/status', 'Payment::index', ['filter' => 'authadmin']);
+
 
 
 });
