@@ -348,9 +348,9 @@ class Bookings extends FrontendController
                         $hash = hash('sha512', $hashstring);
            
 
-                        $success = base_url('Payment/Status');  
-                        $fail = base_url('Payment/Status');
-                        $cancel = base_url('Payment/Status');
+                        $success = base_url('payment/status');  
+                        $fail = base_url('payment/status');
+                        $cancel = base_url('payment/status');
                 
                 
                         $data = array(
