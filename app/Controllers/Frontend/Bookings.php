@@ -256,7 +256,7 @@ class Bookings extends FrontendController
 
 
                         $guest_name = $this->request->getVar('name');
-                        $guset_mobile = $this->request->getVar('phone');
+                        $guest_mobile = $this->request->getVar('phone');
                         $guest_email = $this->request->getVar('email');
                         // $guest_identity = $this->request->getVar('identity');
                         // $guest_iden_no = $this->request->getVar('identity_no');
@@ -296,9 +296,9 @@ class Bookings extends FrontendController
                         $bookData = array(
 
                             'booking_code'=>$bookingCode,
-                            'mode'=>'OFL',
+                            'mode'=>'WEB',
                             'guest_name'=>$guest_name,
-                            'guest_mobile'=>$guset_mobile,
+                            'guest_mobile'=>$guest_mobile,
                             'guest_email'=>$guest_email,
                             'guest_address'=>null,
                             'check_in'=>$start_time,
@@ -310,7 +310,7 @@ class Bookings extends FrontendController
                             'total_amt'=>$payable_amt,
                             'amt_paid'=>$advance,
                             'balance_amt'=>$balance,
-                            'booking_status'=>'confirmed',
+                            'booking_status'=>'pending',
                             'payment_status'=>$payment_status,
                             'no_guests'=>$no_guests,
                             'client_id'=>session()->get('cl_id'),            
@@ -318,7 +318,58 @@ class Bookings extends FrontendController
                         $builder2 = $this->db->table('bookings');
                         $builder2->insert($bookData);   
 
-                        return redirect()->to(base_url('my-bookings'));            
+                        //return redirect()->to(base_url('my-bookings'));            
+
+                        //Redirect to Payment Screen
+                         /*PAYU*/
+                        $MERCHANT_KEY = "q24a5c"; //change  merchant with yours
+                        $SALT = "UUvOK5cWac8GqrlmSM5uxUcBHuCM5dCR";  //change salt with yours 
+
+                        $txnid = $bookingCode;
+
+                        //optional udf values 
+                        $udf1 = '';
+                        $udf2 = '';
+                        $udf3 = '';
+                        $udf4 = '';
+                        $udf5 = '';
+
+                        // $hashstring = $MERCHANT_KEY . '|' . $txnid . '|' . $balance . '|' . $guest_mobile . '|' . $guest_name . '|' . $guest_email . '|' . $udf1 . '|' . $udf2 . '|' . $udf3 . '|' . $udf4 . '|' . $udf5 . '||||||' . $SALT;
+                        $hashstring = $MERCHANT_KEY . '|' . $txnid . '|' . $balance . '|' . $guest_mobile . '|' . $guest_name . '|' . $guest_email . '|' . $udf1 . '|' . $udf2 . '|' . $udf3 . '|' . $udf4 . '|' . $udf5 . '||||||' . $SALT;
+
+                        // $hash = strtolower(hash('sha512', $hashstring));
+                        $hash = hash('sha512', $hashstring);
+           
+
+                        $success = base_url('Payment/Status');  
+                        $fail = base_url('Payment/Status');
+                        $cancel = base_url('Payment/Status');
+                
+                
+                        $data = array(
+
+                            'pageTitle' => 'NILACHAL-STAY&TOUR',
+                            'mkey' => $MERCHANT_KEY,
+                            'tid' => $txnid,
+                            'hash' => $hash,
+                            'amount' => $balance,           
+                            'name' => $guest_name,
+                            'productinfo' => $guest_mobile,
+                            'email' =>  $guest_email,
+                            'phoneno' =>  $guest_mobile,
+                            'address' => 'guwahati',
+                            'action' => "https://secure.payu.in", //for live change action  https://secure.payu.in
+                            'sucess' => $success,
+                            'failure' => $fail,
+                            'cancel' => $cancel            
+                        );
+
+
+
+                        $this->render_view('Frontend/pages/payment',$data);  
+
+
+
 
                         break;
                     

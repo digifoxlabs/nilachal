@@ -146,5 +146,8 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'] ,static functio
     $routes->get('bookings/calendar', 'Bookings::calendarView', ['filter' => 'authadmin']);
     $routes->get('bookings/calendar_json', 'Bookings::calendar_json', ['filter' => 'authadmin']);
 
+    //Payment
+    $routes->match(['get','post'],'payment/status', 'Payment::index', ['filter' => 'authadmin']);
+
 
 });
