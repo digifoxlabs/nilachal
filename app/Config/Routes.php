@@ -57,7 +57,7 @@ $routes->match(['get', 'post'],'contact-us', 'Frontend\Home::contact');
 $routes->get('logout', 'Frontend\Authenticate::logout');
 
 //Payment
-$routes->match(['get','post'],'payment/status', 'Frontend\Payment::index', ['filter' => 'authclient']);
+$routes->match(['get','post'],'payment/status', 'Frontend\Payment::index');
 
 /*
  * --------------------------------------------------------------------
