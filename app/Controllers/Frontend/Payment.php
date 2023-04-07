@@ -12,22 +12,22 @@ class Payment extends FrontendController
     public function index()
     {
         
-        $status = $this->input->post('status');
+        $status = $this->request->getVar('status');
         if (empty($status)) {
               return redirect()->to(base_url('my-bookings'));    
           }
          
-          $firstname = $this->input->post('firstname');
-          $amount = $this->input->post('amount');
-          $txnid = $this->input->post('txnid');
-          $posted_hash = $this->input->post('hash');
-          $key = $this->input->post('key');
-          $productinfo = $this->input->post('productinfo');
-          $email = $this->input->post('email');
+          $firstname = $this->request->getVar('firstname');
+          $amount = $this->request->getVar('amount');
+          $txnid = $this->request->getVar('txnid');
+          $posted_hash = $this->request->getVar('hash');
+          $key = $this->request->getVar('key');
+          $productinfo = $this->request->getVar('productinfo');
+          $email = $this->request->getVar('email');
           $salt = "UUvOK5cWac8GqrlmSM5uxUcBHuCM5dCR"; //  Your salt
-          $add = $this->input->post('additionalCharges');
+          $add = $this->request->getVar('additionalCharges');
           If (isset($add)) {
-              $additionalCharges = $this->input->post('additionalCharges');
+              $additionalCharges = $this->request->getVar('additionalCharges');
               $retHashSeq = $additionalCharges . '|' . $salt . '|' . $status . '|||||||||||' . $email . '|' . $firstname . '|' . $productinfo . '|' . $amount . '|' . $txnid . '|' . $key;
           } else {
   
