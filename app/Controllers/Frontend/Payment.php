@@ -5,7 +5,7 @@ namespace App\Controllers\Frontend;
 use App\Controllers\BaseController;
 use App\Controllers\FrontendController;
 
-class Payment extends AdminController
+class Payment extends FrontendController
 {
 
     /**Initiate Payment */
