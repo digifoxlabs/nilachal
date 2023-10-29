@@ -109,6 +109,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'] ,static functio
     $routes->get('bookings/active', 'Bookings::activeBookings', ['filter' => 'authadmin']);
     $routes->get('bookings/cancelled', 'Bookings::cancelledBookings', ['filter' => 'authadmin']);
     $routes->post('fetchbookings', 'Bookings::fetchBookings');
+    $routes->post('bookings/deleteBooking', 'Bookings::deleteBooking', ['filter' => 'authadmin']);
 
     //Offline Bookings
     $routes->get('bookings/offline/check-dates', 'Bookings::offlineBooking', ['filter' => 'authadmin']);

@@ -1,6 +1,18 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
+<?php
+    $session = session(); ?>
+    
+    <script type="text/javascript">
+        <?php if($session->getFlashdata('success')): ?>
+        toastr.success('<?php echo $session->getFlashdata('success'); ?>')
+        <?php elseif($session->getFlashdata('error')): ?>
+        toastr.warning('<?php echo $session->getFlashdata('error'); ?>');
+        <?php endif; ?>
+      </script>  
+
+
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3" style="display:flex;align-items: center;justify-content:space-between;">
@@ -43,6 +55,39 @@
 
 </div>
 <!-- /.container-fluid -->
+
+<!-- Modal Delete -->  
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete Booking?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div class="modal-body">                
+                <p>Are You sure to <strong>Delete</strong> the booking of <strong><span id = "delName"></span></strong>   ?</p>                            
+                <form action="<?php echo base_url('admin/bookings/deleteBooking') ?>" method="post">                    
+                <input type="hidden" name="row_id" id="del_id">  
+                                        
+                <div class="modal-footer justify-content-between">
+                  <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-outline-success">Confirm</button>
+                </div>                    
+              </form>                          
+            </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
 
 <script>
     var site_url = "<?php echo base_url(); ?>";
@@ -96,7 +141,7 @@
                 {
                     mRender: function(data, type, row) {
                         return '<a href="<?= base_url('admin/bookings/view') ?>' + '/' + row.booking_code +
-                            '" class="btn btn-info btn-sm" >VIEW</a>'
+                            '" class="btn btn-info btn-sm" >VIEW</a> <button class="btn btn-outline-danger btn-sm del-button" data-toggle="modal" data-target="#deleteModal" data-id="' + row.booking_code + '" data-name="' + row.guest_name + '" >Del</button>'
                     }
                 },
             ],
@@ -125,6 +170,27 @@
         $('#searchByStatus').change(function(){
             dataTable.draw();
           });
+
+
+
+
+
+     $('#deleteModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      var todo_id = button.data('id')  
+      var todo_name = button.data('name')
+  
+      var modal = $(this)  
+      modal.find('.modal-body #del_id').val(todo_id)
+      modal.find('.modal-body #delName').text(todo_name)  
+
+    }); 
+
+
+
+
+
+
 
     });
 </script>

@@ -184,6 +184,7 @@
                                 <option value="card">CARD</option>
                                 <option value="upi">UPI</option>
                                 <option value="cheque">CHEQUE</option>                          						
+                                <option value="cheque">NA</option>                          						
                                 </select>
                          
                             </div>

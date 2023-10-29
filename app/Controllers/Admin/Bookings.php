@@ -129,6 +129,53 @@ class Bookings extends AdminController
     }
 
 
+    /**Delete Bookings
+     * 
+     * Room Reservation
+     * Bookings
+     * Transanctions
+     */
+    public function deleteBooking(){
+        $data = array(
+            'pageTitle' => 'NILACHAL-ADMIN',
+        );
+
+
+        if (isset($_POST['row_id'])) {      
+
+            $del_id = $this->request->getVar('row_id');     
+            
+            //Delete Bookings
+            $builder = $this->db->table('bookings');
+            $builder->where('booking_code', $del_id);
+            $builder->delete();
+
+            //Delete Reservation
+            $builder2 = $this->db->table('room_reservation');
+            $builder2->where('booking_code', $del_id);
+            $builder2->delete();       
+
+            //Delete Transaction
+            $builder3 = $this->db->table('transactions');
+            $builder3->where('transaction_id', $del_id);
+            $builder3->delete();
+
+            $session = session();
+            $session->setFlashdata('success', 'Booking Deleted');
+             return redirect()->to(base_url('admin/bookings/new'));
+      }
+      
+      else {
+          
+          $this->session->set_flashdata('error', 'Error occurred!!');
+          return redirect()->to(base_url('admin/bookings/new'));
+      }   
+
+    }
+
+
+
+
     /**Offline Booking */
     public function offlineBooking(){
 
