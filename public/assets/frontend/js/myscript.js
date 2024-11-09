@@ -1,5 +1,5 @@
 var dateToday = new Date();
-var unavailableDates = ["19-6-2023","20-6-2023", "21-6-2023", "22-6-2023", "23-6-2023", "24-6-2023", "25-6-2023", "26-6-2023", "27-6-2023", "28-6-2023" , "29-6-2023" , "30-6-2023" ];
+var unavailableDates = ["15-6-2024", "16-6-2024" ];
 
 function unavailable(date) {
     dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();

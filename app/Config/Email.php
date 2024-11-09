@@ -9,7 +9,8 @@ class Email extends BaseConfig
     /**
      * @var string
      */
-    public $fromEmail = "support@nilachalstaytour.com";
+   // public $fromEmail = "support@nilachalstaytour.com";
+    public $fromEmail = "amlan17bhuyan@gmail.com";
 
     /**
      * @var string
@@ -40,35 +41,40 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $mailPath = '/usr/sbin/sendmail';
+   // public $mailPath = '/usr/sbin/sendmail';
+    public $mailPath = "\"C:\xampp\sendmail\sendmail.exe\" -t";
 
     /**
      * SMTP Server Address
      *
      * @var string
      */
-    public $SMTPHost = "mail.nilachalstaytour.com";
+    //public $SMTPHost = "mail.nilachalstaytour.com";
+    public $SMTPHost = "smtp.googlemail.com";
 
     /**
      * SMTP Username
      *
      * @var string
      */
-    public $SMTPUser = "support@nilachalstaytour.com";
+   // public $SMTPUser = "support@nilachalstaytour.com";
+    public $SMTPUser = "amlan17bhuyan@gmail.com";
 
     /**
      * SMTP Password
      *
      * @var string
      */
-    public $SMTPPass ="d5h6PXi[1)3uDR";
+   // public $SMTPPass ="d5h6PXi[1)3uDR";
+    public $SMTPPass ="hzpi mpzt eyqn avwk";
 
     /**
      * SMTP Port
      *
      * @var int
      */
-    public $SMTPPort = 465;
+    //public $SMTPPort = 465;
+    public $SMTPPort = 587;
 
     /**
      * SMTP Timeout (in seconds)
