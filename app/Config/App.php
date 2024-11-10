@@ -26,6 +26,12 @@ class App extends BaseConfig
      */
     public $baseURL = 'http://localhost:8080/';
 
+    /***
+     * ASSET VERSION
+     * 
+     */
+    public $assetVersion = '1.0.0'; 
+
     /**
      * --------------------------------------------------------------------------
      * Index File

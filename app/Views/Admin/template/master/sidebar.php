@@ -1,5 +1,7 @@
 <body id="page-top">
 
+<div id="base-url" data-url="<?= base_url() ?>"></div>
+
   <!-- Page Wrapper -->
   <div id="wrapper">
 

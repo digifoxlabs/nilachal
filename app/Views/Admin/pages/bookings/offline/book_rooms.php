@@ -148,8 +148,9 @@
                                 $norooms = $builder->select('room_no')
                                                     ->where('cat_id', $room['cat_id'])
                                                     ->where('status !=', 'na')
+                                                    ->where('is_offline', 1)
                                                     ->countAllResults();                                  
-                                 
+                             
                                 //Get Booked rooms
                                 $builder2 = $this->db->table('room_reservation');
                                 $bookedRooms = $builder2->select('*')
@@ -163,9 +164,7 @@
                                     $bk_out = $row['check_out'];
 
                                     $start_time = date('Y-m-d', strtotime($checkIN));
-                                    $end_time = date('Y-m-d', strtotime($checkOut));
-
-                           
+                                    $end_time = date('Y-m-d', strtotime($checkOut));                           
 
 
                                     if(
@@ -179,9 +178,9 @@
                                            $b_rooms+=$row['no_rooms'];
                     
                                         }
-                                        else {
-                                            $b_rooms =0;
-                                        }
+                                        // else {
+                                        //     $b_rooms =0;  //removed
+                                        // }
 
                                 }
 

@@ -6,6 +6,7 @@ use App\Controllers\AdminController;
 
 // Load Model
 use App\Models\CategoryModel;
+use App\Models\DateRangeModel;
 
 class Bookings extends AdminController
 {
@@ -1117,6 +1118,11 @@ class Bookings extends AdminController
             'pageTitle' => 'NILACHAL-STAY&TOUR'                                         
         ); 
 
+        //Fetch all DateRanges
+        $rangeModel = new DateRangeModel();
+        $data['dateRanges'] = $rangeModel->findAll();
+   
+
         $this->render_view('Admin/pages/bookings/calendar', $data);
 
 
@@ -1145,6 +1151,100 @@ class Bookings extends AdminController
 
 
     }
+
+
+    //Disable date range
+
+    public function createDateRange(){
+
+
+        $data = array(
+            'pageTitle' => 'NILACHAL-ADMIN',
+        );
+
+        if ($this->request->getPost()) {
+
+            $rules = [
+                'disable_category' => 'required|trim',
+                'dateType' => 'trim|required',
+             
+            ];
+
+            $errors = [
+                'disable_category' => [
+                    'required' => "Category is required",
+                ],   
+            ];
+
+
+            if (!$this->validate($rules,$errors)) {
+                $data['validation'] = $this->validator;
+   
+                $session = session();
+                $session->setFlashdata('error',  "Input Field Error");
+                return redirect()->to(base_url('admin/bookings/calendar'));  
+
+            }else {
+
+                $model = new DateRangeModel();              
+
+                $newData = [
+                    'disable_category' => $this->request->getVar('disable_category'),
+                    'date_type' => $this->request->getVar('dateType'),
+                    'single_date' => $this->request->getVar('singleDate') ?: null,          
+                    'start_date' => $this->request->getVar('startDate') ?: null,          
+                    'end_date' => $this->request->getVar('endDate') ?: null,          
+                ];
+
+
+                $model->save($newData);
+                // $last_id = $model->insertID(); 
+               //  echo "Form Submitted with ID:".$last_id;
+ 
+               $session = session();
+               $session->setFlashdata('success', 'Created Successfuly');
+
+               return redirect()->to(base_url('admin/bookings/calendar'));  
+
+               
+            }
+
+        }
+
+        else {
+
+            return redirect()->to(base_url('admin/bookings/calendar'));  
+        }
+
+
+    }
+
+    public function deleteDateRange(){
+
+        $data = array(
+            'pageTitle' => 'NILACHAL-ADMIN',
+        );
+
+
+     if (isset($_POST['row_id'])) {      
+
+            $id = $this->request->getVar('row_id');              
+            $model = new DateRangeModel();
+            $model->delete($id );
+            $session = session();
+            $session->setFlashdata('success', 'Date Deleted');
+            return redirect()->to(base_url('admin/bookings/calendar'));  
+      }
+      
+      else {
+        $session = session();
+        $session->setFlashdata('error', 'Error occurred!!');
+        return redirect()->to(base_url('admin/bookings/calendar'));  
+      }   
+
+    }
+
+
 
 }
 

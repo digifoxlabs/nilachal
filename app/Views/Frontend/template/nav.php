@@ -1,5 +1,7 @@
 <body>
 
+<div id="base-url" data-url="<?= base_url() ?>"></div>
+
 <div class="preloader">
   <div class="preloader-body">
     <div class="cssload-container">

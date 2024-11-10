@@ -1,17 +1,17 @@
 <script>
     function ValidateForm(form) {
-        if (form.start_time.value == "") {
+        if (form.check_in.value == "") {
             alert("<?php echo "Please select the check-in date";?>");
             return false;
         }
 
-        if (form.end_time.value == "") {
+        if (form.check_out.value == "") {
             alert("<?php echo "Please select the check-out date";?>");
             return false;
         }
 
-        var start_time = Date.parse(form.start_time.value);
-        var end_time = Date.parse(form.end_time.value);
+        var start_time = Date.parse(form.check_in.value);
+        var end_time = Date.parse(form.check_out.value);
 
         if (start_time > end_time) {
             alert("<?php echo "The check-in date can not be after the check-out date!";?>");
@@ -78,4 +78,3 @@
             </div>
         </section>
 
-      

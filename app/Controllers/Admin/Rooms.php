@@ -301,6 +301,8 @@ class Rooms extends AdminController
         $rules = [
             'room_no' => 'required|trim',
             'status' => 'required|trim',         
+            'is_online' => 'required|trim',         
+            'is_offline' => 'required|trim',         
               
         ];
 
@@ -331,6 +333,8 @@ class Rooms extends AdminController
                 'cat_id' => $this->request->getVar('cat_id'),
                 'room_no' => $this->request->getVar('room_no'),
                 'status' => $this->request->getVar('status'),
+                'is_online' => $this->request->getVar('is_online'),
+                'is_offline' => $this->request->getVar('is_offline'),
    
             ];
 
@@ -350,7 +354,9 @@ class Rooms extends AdminController
 
         $rules = [
             'room_no' => 'required|trim',
-            'status' => 'required|trim',         
+            'status' => 'required|trim',     
+            'is_online' => 'required|trim',         
+            'is_offline' => 'required|trim',     
               
         ];
 
@@ -384,6 +390,8 @@ class Rooms extends AdminController
                 'room_no' => $this->request->getVar('room_no'),
                 'status' => $this->request->getVar('status'),
                 'booking_code' => $this->request->getVar('booking_code'),
+                'is_online' => $this->request->getVar('is_online'),
+                'is_offline' => $this->request->getVar('is_offline'),
    
             ];
 

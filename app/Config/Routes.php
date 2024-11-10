@@ -56,6 +56,9 @@ $routes->match(['get', 'post'],'contact-us', 'Frontend\Home::contact');
 
 $routes->get('logout', 'Frontend\Authenticate::logout');
 
+//Diabled Dates
+$routes->get('bookings/getdisableonlinedates', 'Frontend\DateRangeController::getDisabledOnlineDates');
+
 //Payment
 $routes->match(['get','post'],'payment/status', 'Frontend\Payment::index');
 
@@ -150,6 +153,15 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'] ,static functio
     //Calendar
     $routes->get('bookings/calendar', 'Bookings::calendarView', ['filter' => 'authadmin']);
     $routes->get('bookings/calendar_json', 'Bookings::calendar_json', ['filter' => 'authadmin']);
+
+    //Disbled Date Range
+    $routes->match(['get','post'],'bookings/createDisabledDate', 'Bookings::createDateRange', ['filter' => 'authadmin']);
+    $routes->match(['get','post'],'bookings/deleteDisabledDate', 'Bookings::deleteDateRange', ['filter' => 'authadmin']);
+
+    $routes->get('bookings/getdisableofflinedates', 'DateRangeController::getDisabledOfflineDates');
+  
+
+
 
 
 

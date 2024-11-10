@@ -1,4 +1,10 @@
 <!-- Page Footer-->
+
+<?php
+        // Access the app config to get the global asset version
+        $config = config('App');
+        $assetVersion = $config->assetVersion;
+    ?>
 <footer class="section footer-corporate context-dark">
         <div class="footer-corporate-inset">
           <div class="container">
@@ -103,7 +109,9 @@
     <?=link_tag('public/assets/frontend/css/jquery.datetimepicker.css')?>   
 
     <?= script_tag('public/assets/frontend/js/jquery.datetimepicker.full.min.js') ?>
-    <?= script_tag('public/assets/frontend/js/myscript.js') ?>
+
+    <?= script_tag(base_url('public/assets/frontend/js/myscript.js') . '?v=' . $assetVersion) ?>
+   
 
 
   </body>

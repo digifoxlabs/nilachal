@@ -158,6 +158,7 @@ $builder = $this->db->table('rooms');
 $norooms = $builder->select('room_no')
                     ->where('cat_id', $room['cat_id'])
                     ->where('status !=', 'na')
+                    ->where('is_online', 1)
                     ->countAllResults();                                  
  
 //Get Booked rooms
@@ -190,9 +191,9 @@ foreach($bookedRooms as $row){
            $b_rooms+=$row['no_rooms'];
 
         }
-        else {
-            $b_rooms =0;
-        }
+        // else {
+        //     $b_rooms =0; //removed
+        // }
 
 }
 
