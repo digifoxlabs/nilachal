@@ -93,7 +93,7 @@ function unavailable(date) {
 
         for (const date of unavailableDates) {
             const disabledDate = parseDateDMY(date);
-            if (disabledDate > start && disabledDate < end) {
+            if (disabledDate >= start && disabledDate <= end) {
                 return true;
             }
         }
@@ -113,6 +113,7 @@ $('#check_in').datetimepicker({
             date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, selectedDate, instance.settings);
         dates.not(this).datepicker("option", option, date);
     }
+
 });
 $('#check_out').datetimepicker({
     format: "d/m/Y",
