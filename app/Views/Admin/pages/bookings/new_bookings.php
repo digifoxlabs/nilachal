@@ -108,7 +108,7 @@
             responsive:true,
             scrollCollapse: true,
             ajax: {
-                url: site_url + "/admin/fetchbookings", // json datasource
+                url: site_url + "admin/fetchbookings", // json datasource
                 type: "post",
                 data: function(data) {
                     // key1: value1 - in case if we want send data with request       
