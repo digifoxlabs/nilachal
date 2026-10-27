@@ -10,7 +10,6 @@
               <h3>Update Profile</h3>
             </div>         
           <form class="rd-form rd-form-variant-2" action="<?= base_url('profile') ?>" method="post">
-              <input name="row_id" placeholder="" type="hidden" value="<?php echo $cl_id; ?>" required/>
           <div class="row row-14 gutters-14">
               <div class="col-md-8">
                   <div style="display:flex; flex-direction: row; justify-content: space-around; align-items: center">

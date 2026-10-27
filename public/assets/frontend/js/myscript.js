@@ -59,7 +59,8 @@ function formatDate(dateString) {
 
 
 function unavailable(date) {
-    dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+    dmy = String(date.getDate()).padStart(2, '0') + "-"
+        + String(date.getMonth() + 1).padStart(2, '0') + "-" + date.getFullYear();
     if ($.inArray(dmy, unavailableDates) == -1) {      
         return [true, ""];
     } else {       
@@ -70,23 +71,17 @@ function unavailable(date) {
 
     // Helper function to parse d/m/Y H:i to Date object
     function parseDateDMY(dateStr) {
-        const [day, month, year] = dateStr.split("-");
-        return new Date(`${year}-${month}-${day}`);      
+        const [day, month, year] = dateStr.split(/[/-]/).map(Number);
+        const date = new Date(year, month - 1, day);
+        date.setHours(0, 0, 0, 0);
+        return date;
     }
-
-
-    // Helper function to parse date from d/m/Y format and return in d-m-Y format
-    function formatToDMY(dateStr) {
-    const [day, month, year] = dateStr.split("/");
-    return `${day}-${month}-${year}`;
-}
-
 
 
      // Function to check if any disabled date is within the range
      function isDisabledDateInRange(startDate, endDate) {
-        const start = parseDateDMY(startDate);
-        const end = parseDateDMY(endDate);
+        const start = startDate instanceof Date ? parseDateDMY(`${startDate.getDate()}/${startDate.getMonth() + 1}/${startDate.getFullYear()}`) : parseDateDMY(startDate);
+        const end = endDate instanceof Date ? parseDateDMY(`${endDate.getDate()}/${endDate.getMonth() + 1}/${endDate.getFullYear()}`) : parseDateDMY(endDate);
 
         console.log(start);
         console.log(end);
@@ -102,16 +97,23 @@ function unavailable(date) {
 
 
 
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
 $('#check_in').datetimepicker({
     format: "d/m/Y",
     formatTime: "",
     timepicker: 0,
+    minDate: today,
     beforeShowDay: unavailable,
-    onSelect: function(selectedDate) {
-        var option = this.id == "from" ? "minDate" : "maxDate",
-            instance = $(this).data("datepicker"),
-            date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, selectedDate, instance.settings);
-        dates.not(this).datepicker("option", option, date);
+    onSelectDate: function(selectedDate) {
+        selectedDate.setHours(0, 0, 0, 0);
+        $('#check_out').datetimepicker('setOptions', { minDate: selectedDate });
+
+        const checkoutDate = parseDateDMY($('#check_out').val());
+        if ($('#check_out').val() && checkoutDate < selectedDate) {
+            $('#check_out').val('');
+        }
     }
 
 });
@@ -119,34 +121,26 @@ $('#check_out').datetimepicker({
     format: "d/m/Y",
     formatTime: "",
     timepicker: 0,
+    minDate: today,
     beforeShowDay: unavailable,
     onSelectDate: function(selectedDate) {
 
-        const startDateStr = $('#check_in').val();
+        const startDate = parseDateDMY($('#check_in').val());
 
-        if(startDateStr == ''){
+        if (!startDate) {
             alert("Select Check In date");
-        }            
-
-        const endDateStr = $('#check_out').val();
-
-        const formattedStartDate = formatToDMY(startDateStr.split(" ")[0]);
-        const formattedEndDate = formatToDMY(endDateStr.split(" ")[0]);  
+            $('#check_out').val('');
+            return;
+        }
 
             // Check if there’s a disabled date between start and end dates
-            if (isDisabledDateInRange(formattedStartDate, formattedEndDate)) {
+            if (selectedDate < startDate) {
+                alert("Check-out date cannot be before the check-in date.");
+                $('#check_out').val('');
+            } else if (isDisabledDateInRange(startDate, selectedDate)) {
                 alert("The selected date range includes a disabled date. Please choose a different range.");
                 $('#check_out').val('');  // Clear the selected end date if it’s invalid
             } 
-            
-            else {
-                var option = this.id == "from" ? "minDate" : "maxDate",
-                instance = $(this).data("datepicker"),
-                date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, selectedDate, instance.settings);
-                dates.not(this).datepicker("option", option, date);
-            }
-   
-        
     }
 });
 

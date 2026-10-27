@@ -38,7 +38,7 @@ class App extends BaseConfig
      * ASSET VERSION
      * 
      */
-    public $assetVersion = '1.0.2'; 
+    public $assetVersion = '1.0.3'; 
 
     /**
      * --------------------------------------------------------------------------

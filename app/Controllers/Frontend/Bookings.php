@@ -36,10 +36,16 @@ class Bookings extends FrontendController
         
         if($this->request->getPost()){
 
+            $postData = [
+                'check_in' => trim((string) $this->request->getPost('check_in')),
+                'check_out' => trim((string) $this->request->getPost('check_out')),
+                'guests' => trim((string) $this->request->getPost('guests')),
+            ];
+
             $rules = [
-                'check_in' => 'required|trim',  
-                'check_out' => 'required|trim',
-                'guests' => 'required|trim'
+                'check_in' => 'required',
+                'check_out' => 'required',
+                'guests' => 'required|integer|greater_than[0]',
             ];
 
             $errors = [
@@ -47,7 +53,7 @@ class Bookings extends FrontendController
                     'required' => "Check In Date Required",
                 ],
                 'check_out' => [
-                    'required' => "Check In Date Required",
+                    'required' => "Check Out Date Required",
                 ],
                 'guests' => [
                     'required' => "No Guests Required",
@@ -55,26 +61,60 @@ class Bookings extends FrontendController
 
             ];
 
-            if (!$this->validate($rules,$errors)) {
+            if (!$this->validateData($postData, $rules, $errors)) {
                 $data['validation'] = $this->validator; 
+                $data = array_merge($data, $postData);
                 $this->render_view('Frontend/pages/bookings/search',$data);   
+                return;
+
+            }
+
+            $parseBookingDate = static function (string $value): ?\DateTimeImmutable {
+                foreach (['!d/m/Y', '!d-m-Y'] as $format) {
+                    $date = \DateTimeImmutable::createFromFormat($format, $value);
+                    if ($date && $date->format(substr($format, 1)) === $value) {
+                        return $date;
+                    }
+                }
+
+                return null;
+            };
+
+            $checkInDate = $parseBookingDate($postData['check_in']);
+            $checkOutDate = $parseBookingDate($postData['check_out']);
+            $today = new \DateTimeImmutable('today');
+
+            if (!$checkInDate || !$checkOutDate) {
+                $data['dateError'] = 'Please enter valid check-in and check-out dates.';
+            } elseif ($checkInDate < $today) {
+                $data['dateError'] = 'Check-in date cannot be before today.';
+            } elseif ($checkOutDate < $today) {
+                $data['dateError'] = 'Check-out date cannot be before today.';
+            } elseif ($checkOutDate < $checkInDate) {
+                $data['dateError'] = 'Check-out date cannot be before the check-in date.';
+            }
+
+            if (isset($data['dateError'])) {
+                $data['check_in'] = $postData['check_in'];
+                $data['check_out'] = $postData['check_out'];
+                $data['guests'] = $postData['guests'];
+                $this->render_view('Frontend/pages/bookings/search', $data);
+                return;
 
             }else {
 
 
                 //Check In Date
-                $checkIn = $this->request->getVar('check_in');
-                $checkIn = str_replace("/","-",$checkIn);
+                $checkIn = $checkInDate->format('d-m-Y');
 
                 //Check Out Date
-                $checkOut = $this->request->getVar('check_out');   
-                $checkOut = str_replace("/","-",$checkOut);
+                $checkOut = $checkOutDate->format('d-m-Y');
 
-                $_SESSION['start_time'] =  date('Y-m-d', strtotime($checkIn));
-                $_SESSION['end_time'] =  date('Y-m-d', strtotime($checkOut));;
+                $_SESSION['start_time'] = $checkInDate->format('Y-m-d');
+                $_SESSION['end_time'] = $checkOutDate->format('Y-m-d');
                 
                 //No Nights
-                $noNights = $this->getNoNights(strtotime($checkIn),strtotime($checkOut)) ;
+                $noNights = $this->getNoNights($checkInDate->getTimestamp(), $checkOutDate->getTimestamp());
 
                 //No Guests
                 $noGuests = $this->request->getVar('guests');

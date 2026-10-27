@@ -29,12 +29,13 @@ class Home extends FrontendController
     //View Profile
     public  function profile(){
 
+        $clientId = (int) session()->get('cl_id');
         $data = array( 
             'pageTitle' => 'NILACHAL-STAY&TOUR'                                         
         );      
 
         $builder = $this->db->table('clients');
-        $builder->where('cl_id', session()->get('cl_id'));
+        $builder->where('cl_id', $clientId);
         $profileData = $builder->get()->getResultArray();
 
         foreach($profileData as $profile){
@@ -47,11 +48,16 @@ class Home extends FrontendController
 
         if($this->request->getPost()){
 
+            $postData = [
+                'name' => trim((string) $this->request->getPost('name')),
+                'email' => trim((string) $this->request->getPost('email')),
+                'mobile' => trim((string) $this->request->getPost('mobile')),
+            ];
 
             $rules = [
-                'name' => 'required|trim',
-                'email' => 'required|trim|is_unique[clients.email,cl_id,{row_id}]',
-                'mobile' => 'trim|required|numeric|is_unique[clients.mobile,cl_id,{row_id}]',       
+                'name' => 'required',
+                'email' => "required|valid_email|is_unique[clients.email,cl_id,{$clientId}]",
+                'mobile' => "required|numeric|is_unique[clients.mobile,cl_id,{$clientId}]",
             ];
     
             $errors = [
@@ -66,8 +72,9 @@ class Home extends FrontendController
                
             ];
     
-            if (!$this->validate($rules,$errors)) {
+            if (!$this->validateData($postData, $rules, $errors)) {
                 $data['validation'] = $this->validator;
+                $data = array_merge($data, $postData);
                 // return view('admin/pages/profile',$data);     
                 // $this->render_view('admin/pages/customers/add',$data);   
                 $session = session();
@@ -80,10 +87,10 @@ class Home extends FrontendController
 
                 $model = new ClientModel();
                 $newData = [
-                    'cl_id' => $this->request->getVar('row_id'),
-                    'name' => $this->request->getVar('name'),
-                    'mobile' => $this->request->getVar('mobile'),
-                    'email' => $this->request->getVar('email'),               
+                    'cl_id' => $clientId,
+                    'name' => $postData['name'],
+                    'mobile' => $postData['mobile'],
+                    'email' => $postData['email'],
                 ];
 
                 $model->save($newData);
