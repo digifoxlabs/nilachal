@@ -69,8 +69,7 @@ class Email extends BaseConfig
      *
      * @var int
      */
-    //public $SMTPPort = 465;
-    public $SMTPPort = 587;
+    public $SMTPPort = 465;
 
     /**
      * SMTP Timeout (in seconds)
@@ -91,7 +90,7 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPCrypto = 'tls';
+    public $SMTPCrypto = 'ssl';
 
     /**
      * Enable word-wrap

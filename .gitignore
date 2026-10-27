@@ -88,6 +88,8 @@ phpunit
 # Composer
 #-------------------------
 vendor/
+!/public/assets/admin/vendor/
+!/public/assets/admin/vendor/**
 
 #-------------------------
 # IDE / Development Files
