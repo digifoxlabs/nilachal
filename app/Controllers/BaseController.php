@@ -21,6 +21,9 @@ use Psr\Log\LoggerInterface;
  */
 abstract class BaseController extends Controller
 {
+    /** @var \CodeIgniter\Database\BaseConnection|null */
+    protected $db;
+
     /**
      * Instance of the main Request object.
      *

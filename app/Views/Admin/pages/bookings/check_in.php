@@ -130,9 +130,9 @@ foreach($bookData as $booking){
     
                             $total_price = 0;
 
-                            $this->db = \Config\Database::connect();  
+                            $db = \Config\Database::connect();  
     
-                            $builder2 = $this->db->table('room_reservation');
+                            $builder2 = $db->table('room_reservation');
                             $builder2->where('booking_code', $booking_code);
                             $reservData = $builder2->get()->getResultArray();
 
@@ -141,7 +141,7 @@ foreach($bookData as $booking){
                                 $r_catID = $row['room_cat'];
 
                                 //Room Category
-                                $builder3 = $this->db->table('room_category');
+                                $builder3 = $db->table('room_category');
                                 $builder3->select('category');
                                 $builder3->where('cat_id', $r_catID);
                                 $room_cat = $builder3->get()->getRow()->category;

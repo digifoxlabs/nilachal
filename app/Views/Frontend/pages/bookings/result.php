@@ -153,8 +153,8 @@
 
 
 // Loading Query builder instance
-$this->db = \Config\Database::connect();
-$builder = $this->db->table('rooms');
+$db = \Config\Database::connect();
+$builder = $db->table('rooms');
 $norooms = $builder->select('room_no')
                     ->where('cat_id', $room['cat_id'])
                     ->where('status !=', 'na')
@@ -162,7 +162,7 @@ $norooms = $builder->select('room_no')
                     ->countAllResults();                                  
  
 //Get Booked rooms
-$builder2 = $this->db->table('room_reservation');
+$builder2 = $db->table('room_reservation');
 $bookedRooms = $builder2->select('*')
                         ->where('room_cat', $room['cat_id'])
                         ->get()->getResultArray();
@@ -202,7 +202,7 @@ $availRooms = $norooms - $b_rooms;
 //Deduct Saved In Session
 $savedRooms = 0;
 
-$builder3 = $this->db->table('sessions');
+$builder3 = $db->table('sessions');
 $builder3->select('room_selected');
 $builder3->where('booking_code',  $_SESSION["bookingID"]);
 $builder3->where('room_cat', $room['cat_id']);                                    

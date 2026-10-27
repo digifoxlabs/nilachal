@@ -27,6 +27,11 @@ class App extends BaseConfig
     public $baseURL = 'http://localhost:8080/';
 
     public array $allowedHostnames = [];
+
+    /**
+     * URI characters allowed in route segments.
+     */
+    public string $permittedURIChars = 'a-z 0-9~%.:_\\-';
    
 
     /***

@@ -34,9 +34,9 @@
                     <?php 
 
 
-                    $this->db = \Config\Database::connect();  
+                    $db = \Config\Database::connect();  
 
-                    $builder2 = $this->db->table('rooms');
+                    $builder2 = $db->table('rooms');
                     $builder2->where('cat_id', $cat_id);
                     $builder2->where('status', 'available');
                     $rowData = $builder2->get()->getResultArray();

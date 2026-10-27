@@ -53,8 +53,8 @@
         
 
         //Query rooms inside category
-        $this->db = db_connect();
-        $builder = $this->db->table('rooms');    
+        $db = db_connect();
+        $builder = $db->table('rooms');    
         $builder->where('cat_id', $list['cat_id']);
         $query = $builder->get();
         $roomData = $query->getResultArray();

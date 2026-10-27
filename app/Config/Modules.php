@@ -32,6 +32,13 @@ class Modules extends BaseModules
     public $discoverInComposer = true;
 
     /**
+     * Composer packages to include or exclude from auto-discovery.
+     *
+     * @var array{only?: list<string>, exclude?: list<string>}
+     */
+    public $composerPackages = [];
+
+    /**
      * --------------------------------------------------------------------------
      * Auto-Discovery Rules
      * --------------------------------------------------------------------------
