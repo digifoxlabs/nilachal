@@ -11,8 +11,34 @@
             return false;
         }
 
-        var start_time = Date.parse(form.check_in.value);
-        var end_time = Date.parse(form.check_out.value);
+        // The date picker uses d/m/Y. Date.parse() treats slash dates as
+        // browser-dependent m/d/Y values, so compare parsed calendar dates.
+        function parsePickerDate(value) {
+            var match = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(value.trim());
+            if (!match) {
+                return null;
+            }
+
+            var day = Number(match[1]);
+            var month = Number(match[2]);
+            var year = Number(match[3]);
+            var date = new Date(year, month - 1, day);
+
+            // Reject impossible dates such as 31/02/2026.
+            if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day) {
+                return null;
+            }
+
+            return date.getTime();
+        }
+
+        var start_time = parsePickerDate(form.check_in.value);
+        var end_time = parsePickerDate(form.check_out.value);
+
+        if (start_time === null || end_time === null) {
+            alert("Please enter valid dates in day/month/year format.");
+            return false;
+        }
 
         if (start_time > end_time) {
             alert("<?php echo "The check-in date can not be after the check-out date!";?>");
